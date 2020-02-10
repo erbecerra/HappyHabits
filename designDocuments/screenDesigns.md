@@ -1,31 +1,29 @@
 # Screen Design
 
-### Home Page aka Reports Page
+### Home Page 
 
-![Home Page](wireframes/1-Reports.png)
+![Home Page](wireframes/home.png)
 
-### Add New Trail Report Page
+### Sign up
 
-![Add New Report](wireframes/2-NewReport.png)
+![Sign up](wireframes/signUp.png)
 
-### Add New Trail Page
+### Login
 
-![Add New Trail](wireframes/3-NewTrail.png)
+![Login](wireframes/login.png)
 
-### Trail Information Page
+### View Goals
 
-![View Trail Info](wireframes/4-Trail.png)
+![View Goals](wireframes/goals.png)
 
-### Dialog for Sign In
+### Add a goal
 
-![Sign In Dialog](wireframes/6-Sign-In.png)
+![Add a Goal](wireframes/addGoal.png)
 
-### Dialog for Sign Up
+### Goal Details
 
-![Sign up Dialog](wireframes/7-SignUp.png)
+![Goal Details](wireframes/goalDetails.png)
 
-### About Page
+### Pokedex
 
-![About Page](wireframes/8-About.png)
-
-
+![Pokedex](wireframes/pokedex.png)
