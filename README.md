@@ -1,7 +1,58 @@
-Happy Habits
-<br />
-This project is intended to help people meet their lifestyle goals
-by implementing a reward system. This reward system is intended to
-have a fun twist on creating healthy habits from drinking water, getting
-enough sleep, exercising and more. The goal is to make it customizable 
-to meet a variety of peoples goals and needs.
+# Estefanie's Individual Project Poke Habits
+
+This repository will serve as an example for Madison College's Enterprise Java Class. 
+
+### Problem Statement
+
+This application will help you meet your lifestyle goals using Pokemon!
+This application will have have a fun twist on creating healthy habits from 
+drinking water, getting enough sleep, exercising and more. When you achieve 
+a goal you get rewarded with a pokemon. After improving over time you can 
+evolve your pokemon!
+
+### Project Technologies/Techniques 
+
+* Security/Authentication
+  * Tomcat's JDBC Realm Authentication
+  * Admin role: create/read/update/delete (crud) of all data
+  * User role: create trail, create trail report, edit data they have entered previously
+  * All: anyone can view trail information (no login)
+* Database
+  * MySQL
+  * Store users and roles
+  * Store all data for the trails and reports
+* ORM Framework
+  * Hibernate 5
+* Dependency Management
+  * Maven
+* Web Services consumed using Java
+  * NOAA for weather conditions at a trail location, including snow depth
+* CSS 
+  * Bootstrap 
+* Data Validation
+  * Bootstrap Validator for front end
+  * Explore Hibernate's validation
+* Logging
+  * Configurable logging using Log4J2. In production, only errors will normally be logged, but logging at a debug level can be turned on to facilitate trouble-shooting. 
+* Hosting
+  * AWS
+* Independent Research Topic/s
+  * CI tools in AWS
+  * Poke API
+  * Hibernate Validation
+* Project Lombok to eliminate boilerplate code like getters/setters/equals
+* Unit Testing
+  * JUnit tests to achieve 80%+ code coverage 
+* IDE: IntelliJ IDEA
+
+
+### Design
+
+* [User Stories](designDocuments/userStories.md)
+* [Screen Design](designDocuments/Screens.md)
+* [Application Flow](designDocuments/applicationFlow.md)
+* [Database Design](designDocuments/databaseDiagram.png)
+
+### [Project Plan](ProjectPlan.md)
+
+### [Weekly Refelection](WeeklyReflection.md)
