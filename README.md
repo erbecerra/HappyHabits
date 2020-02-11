@@ -6,7 +6,9 @@ This repository will serve as an example for Madison College's Enterprise Java C
 
 This application will help you meet your lifestyle goals using Pokemon!
 This application will have have a fun twist on creating healthy habits from 
-drinking water, getting enough sleep, exercising and more. When you achieve 
+drinking water, getting enough sleep, exercising and more. It can be difficult to track
+your habits or find easy ways to develop new habits. This application will help you 
+have fun while developing healthy life choices. When you achieve 
 a goal you get rewarded with a pokemon. After improving over time you can 
 evolve your pokemon!
 
@@ -25,8 +27,6 @@ evolve your pokemon!
   * Hibernate 5
 * Dependency Management
   * Maven
-* Web Services consumed using Java
-  * NOAA for weather conditions at a trail location, including snow depth
 * CSS 
   * Bootstrap 
 * Data Validation
