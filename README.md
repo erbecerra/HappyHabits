@@ -17,8 +17,8 @@ evolve your pokemon!
 * Security/Authentication
   * Tomcat's JDBC Realm Authentication
   * Admin role: create/read/update/delete (crud) of all data
-  * User role: create trail, create trail report, edit data they have entered previously
-  * All: anyone can view trail information (no login)
+  * User role: create goals, track habits, collect pokemon 
+  * All: Users must be authenticated, all have access to basic home page
 * Database
   * MySQL
   * Store users and roles
@@ -50,9 +50,7 @@ evolve your pokemon!
 
 * [User Stories](designDocuments/userStories.md)
 * [Screen Design](designDocuments/Screens.md)
-* [Application Flow](designDocuments/applicationFlow.md)
-* [Database Design](designDocuments/databaseDiagram.png)
 
 ### [Project Plan](ProjectPlan.md)
 
-### [Weekly Refelection](WeeklyReflection.md)
+### [Weekly Refelection](timeLog.md)
