@@ -20,6 +20,10 @@
 
 ![Add a Goal](wireframes/addGoal.png)
 
+### Log Activity
+
+![Add a Goal](wireframes/log.png)
+
 ### Goal Details
 
 ![Goal Details](wireframes/goalDetails.png)
