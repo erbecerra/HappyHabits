@@ -49,8 +49,8 @@ evolve your pokemon!
 ### Design
 
 * [User Stories](designDocuments/userStories.md)
-* [Screen Design](designDocuments/Screens.md)
+* [Screen Design](designDocuments/screenDesigns.md)
 
-### [Project Plan](ProjectPlan.md)
+### [Project Plan](projectPlan.md)
 
 ### [Weekly Refelection](timeLog.md)
