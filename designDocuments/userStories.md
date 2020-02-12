@@ -29,6 +29,10 @@ As a user after I complete a goal I want to be rewarded by catching a pokemon so
 
 As a user I want to be able to see all my pokemon to see all of my completed goals. 
 
+### Delete/Edit Goals
+
+As a user I want to be able to edit or remove goals that I no longer want 
+
 
 
 

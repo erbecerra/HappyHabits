@@ -1,7 +1,5 @@
 # Estefanie's Individual Project Poke Habits
 
-This repository will serve as an example for Madison College's Enterprise Java Class. 
-
 ### Problem Statement
 
 This application will help you meet your lifestyle goals using Pokemon!
@@ -16,7 +14,6 @@ evolve your pokemon!
 
 * Security/Authentication
   * Tomcat's JDBC Realm Authentication
-  * Admin role: create/read/update/delete (crud) of all data
   * User role: create goals, track habits, collect pokemon 
   * All: Users must be authenticated, all have access to basic home page
 * Database
