@@ -14,8 +14,8 @@
 
 ### Week 4
 - [ ] Complete database design
-- [ ] Create the database and user table
-- [ ] Create the user entity class and annotate for hibernate
+- [x] Create the database and user table
+- [x] Create the user entity class and annotate for hibernate
 - [ ] Create user dao
 - [ ] Create the test database
 - [ ] Create user dao unit tests
