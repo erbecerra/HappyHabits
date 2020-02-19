@@ -7,8 +7,11 @@ import java.time.LocalDate;
 import java.util.List;
 import util.Database;
 
+import javax.persistence.Entity;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 class UserDaoTest {
 
