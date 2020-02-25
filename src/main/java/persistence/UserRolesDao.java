@@ -1,6 +1,5 @@
 package persistence;
 
-import entity.User;
 import entity.UserRoles;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,32 +34,32 @@ public class UserRolesDao {
     /**
      * Get user role by id
      */
-    public User getById(int id) {
+    public UserRoles getById(int id) {
         Session session = sessionFactory.openSession();
-        User user = session.get( User.class, id );
+        UserRoles userRoles = session.get( UserRoles.class, id );
         session.close();
-        return user;
+        return userRoles;
     }
 
     /**
      * update user role
-     * @param user  User to be updated
+     * @param userRoles  UserRoles to be updated
      */
-    public void saveOrUpdate(User user) {
+    public void saveOrUpdate(UserRoles userRoles) {
         Session session = sessionFactory.openSession();
-        session.saveOrUpdate(user);
+        session.saveOrUpdate(userRoles);
         session.close();
     }
 
     /**
      * insert user role
-     * @param user  User to be inserted
+     * @param userRoles  UserRoles to be inserted
      */
-    public int insert(User user) {
+    public int insert(UserRoles userRoles) {
         int id = 0;
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        id = (int)session.save(user);
+        id = (int)session.save(userRoles);
         transaction.commit();
         session.close();
         return id;
@@ -68,12 +67,12 @@ public class UserRolesDao {
 
     /**
      * Delete a user role
-     * @param user User to be deleted
+     * @param userRoles UserRoles to be deleted
      */
-    public void delete(User user) {
+    public void delete(UserRoles userRoles) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.delete(user);
+        session.delete(userRoles);
         transaction.commit();
         session.close();
     }

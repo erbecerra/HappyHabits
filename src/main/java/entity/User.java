@@ -24,6 +24,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @OneToMany(mappedBy = "user_name", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @Column(name = "user_name")
     private String userName;
 
