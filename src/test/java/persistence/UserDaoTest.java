@@ -40,6 +40,8 @@ class UserDaoTest {
         assertEquals("Barney", retrievedUser.getFirstName());
         assertEquals("Curry", retrievedUser.getLastName());
         assertEquals("bcurry", retrievedUser.getUserName());
+
+
         //TODO compare remaining values
     }
 
