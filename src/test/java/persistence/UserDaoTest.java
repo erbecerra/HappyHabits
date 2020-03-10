@@ -5,9 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.List;
-import util.Database;
-
-import javax.persistence.Entity;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,8 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserDaoTest {
 
-    UserDao dao;
-
+    GenericDao dao;
     /**
      * Run set up tasks before each test:
      * 1. execute sql which deletes everything from the table and inserts records)
@@ -28,7 +24,7 @@ class UserDaoTest {
         util.Database database = util.Database.getInstance();
         database.runSQL("cleandb.sql");
 
-        dao = new UserDao();
+        dao = new GenericDao(User.class);
     }
 
     /**
@@ -36,13 +32,11 @@ class UserDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrievedUser = dao.getById(3);
+        User retrievedUser = (User)dao.getById(3);
         assertEquals("Barney", retrievedUser.getFirstName());
         assertEquals("Curry", retrievedUser.getLastName());
         assertEquals("bcurry", retrievedUser.getUserName());
-
-
-        //TODO compare remaining values
+        assertEquals("1947-11-11", retrievedUser.getDateOfBirth());
     }
 
     /**
@@ -54,7 +48,7 @@ class UserDaoTest {
         User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getById(id);
+        User insertedUser = (User)dao.getById(id);
         assertEquals("Fred", insertedUser.getFirstName());
         // Could continue comparing all values, but
         // it may make sense to use .equals()

@@ -3,6 +3,8 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A class to represent a user.
@@ -24,12 +26,14 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    @OneToMany(mappedBy = "user_name", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @Column(name = "user_name")
+     @Column(name = "user_name")
     private String userName;
 
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<UserRoles> roles = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -140,6 +144,55 @@ public class User {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * Gets orders.
+     *
+     * @return the orders
+     */
+    public Set<UserRoles> getRoles() {
+        return roles;
+    }
+
+    /**
+     * Sets orders.
+     *
+     * @param roles the roles
+     */
+    public void setRoles(Set<UserRoles> roles) {
+        this.roles = roles;
+    }
+
+    /**
+     * Add order.
+     *
+     * @param role the roles
+     */
+    public void addRoles(UserRoles role) {
+        roles.add(role);
+        role.setUser(this);
+    }
+
+    /**
+     * Remove role.
+     *
+     * @param role the role
+     */
+    public void removeRole(UserRoles role) {
+        roles.remove(role);
+        role.setUser(null);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", id=" + id +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
     }
 
 

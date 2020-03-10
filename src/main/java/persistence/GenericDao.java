@@ -1,23 +1,19 @@
 package persistence;
 
-import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.swing.text.html.parser.Entity;
 import java.util.List;
 
 public class GenericDao<T> {
 
     private Class<T> type;
     private final Logger logger = LogManager.getLogger(this.getClass());
-
 
     /**
     * Instantiate a generic DAO
@@ -41,7 +37,7 @@ public class GenericDao<T> {
      */
     public <T>T getById(int id) {
         Session session = getSession();
-        T entity = (T)session.get(type, id );
+        T entity = (T)session.get(type, id);
         session.close();
         return entity;
     }
@@ -80,5 +76,19 @@ public class GenericDao<T> {
         Session session = getSession();
         session.saveOrUpdate(entity);
         session.close();
+    }
+
+    /**
+     * insert
+     * @param entity  entity to be inserted
+     */
+    public int insert(T entity) {
+        int id = 0;
+        Session session = getSession();
+        Transaction transaction = session.beginTransaction();
+        id = (int)session.save(entity);
+        transaction.commit();
+        session.close();
+        return id;
     }
 }
