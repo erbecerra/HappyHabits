@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class UserRolesDaoTest {
 
-    UserRolesDao dao;
+    GenericDao dao;
 
     /**
      * Run set up tasks before each test:
@@ -26,7 +26,7 @@ public class UserRolesDaoTest {
         util.Database database = util.Database.getInstance();
        // database.runSQL("cleandb.sql");
 
-        dao = new UserRolesDao();
+        dao = new GenericDao(UserRoles.class);
     }
 
     /**
@@ -34,10 +34,7 @@ public class UserRolesDaoTest {
      */
     @Test
     void getByIdSuccess() {
-        User retrievedUser = dao.getById(3);
-        assertEquals("Barney", retrievedUser.getFirstName());
-        assertEquals("Curry", retrievedUser.getLastName());
-        assertEquals("bcurry", retrievedUser.getUserName());
+        UserRoles retrievedUser = (UserRoles) dao.getById(3);
     }
 
     /**
@@ -49,7 +46,7 @@ public class UserRolesDaoTest {
         User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
-        User insertedUser = dao.getById(id);
+        User insertedUser = (User)dao.getById(id);
         assertEquals("Fred", insertedUser.getFirstName());
         // Could continue comparing all values, but
         // it may make sense to use .equals()
