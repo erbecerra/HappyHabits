@@ -50,3 +50,4 @@ fabric.properties
 
 # database properties
 src/main/resources/database.properties
+src/test/resources/database.properties
