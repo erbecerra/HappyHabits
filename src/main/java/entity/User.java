@@ -4,6 +4,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -33,7 +34,7 @@ public class User {
     private LocalDate dateOfBirth;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<UserRoles> roles = new HashSet<>();
+    private Set<Role> roles = new HashSet<>();
 
     /**
      * Instantiates a new User.
@@ -151,7 +152,7 @@ public class User {
      *
      * @return the orders
      */
-    public Set<UserRoles> getRoles() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
@@ -160,7 +161,7 @@ public class User {
      *
      * @param roles the roles
      */
-    public void setRoles(Set<UserRoles> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
 
@@ -169,7 +170,7 @@ public class User {
      *
      * @param role the roles
      */
-    public void addRoles(UserRoles role) {
+    public void addRole(Role role) {
         roles.add(role);
         role.setUser(this);
     }
@@ -179,7 +180,7 @@ public class User {
      *
      * @param role the role
      */
-    public void removeRole(UserRoles role) {
+    public void removeRole(Role role) {
         roles.remove(role);
         role.setUser(null);
     }
@@ -193,6 +194,24 @@ public class User {
                 ", id=" + id +
                 ", dateOfBirth=" + dateOfBirth +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id &&
+                Objects.equals(firstName, user.firstName) &&
+                Objects.equals(lastName, user.lastName) &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(dateOfBirth, user.dateOfBirth);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(firstName, lastName, userName, id, dateOfBirth);
     }
 
 

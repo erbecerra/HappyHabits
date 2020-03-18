@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.Role;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -36,7 +37,7 @@ class UserDaoTest {
         assertEquals("Barney", retrievedUser.getFirstName());
         assertEquals("Curry", retrievedUser.getLastName());
         assertEquals("bcurry", retrievedUser.getUserName());
-        assertEquals("1947-11-11", retrievedUser.getDateOfBirth());
+        assertEquals(LocalDate.parse("1947-11-11"), retrievedUser.getDateOfBirth());
     }
 
     /**
@@ -44,15 +45,33 @@ class UserDaoTest {
      */
     @Test
     void insertSuccess() {
-
         User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)dao.getById(id);
-        assertEquals("Fred", insertedUser.getFirstName());
-        // Could continue comparing all values, but
-        // it may make sense to use .equals()
-        // TODO review .equals recommendations http://docs.jboss.org/hibernate/orm/5.2/userguide/html_single/Hibernate_User_Guide.html#mapping-model-pojo-equalshashcode
+        assertEquals(newUser, insertedUser);
+    }
+
+    /**
+     * Verify successful insert of a user
+     */
+    @Test
+    void insertWithRoleSuccess() {
+
+        String userName = "fflintstone";
+        User newUser = new User("Fred", "Flintstone", userName, LocalDate.parse("1168-01-01"));
+
+        String roleName = "admin";
+        Role role = new Role(newUser,roleName, userName);
+
+        newUser.addRole(role);
+
+        int id = dao.insert(newUser);
+
+        assertNotEquals(0,id);
+        User insertedUser = (User)dao.getById(id);
+        assertEquals(newUser, insertedUser);
+        assertEquals(1, insertedUser.getRoles().size());
     }
 
     /**
