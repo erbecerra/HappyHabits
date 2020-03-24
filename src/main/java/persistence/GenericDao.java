@@ -130,7 +130,7 @@ public class GenericDao<T> {
     public List<T> getByPropertyEqual(String propertyName, String value) {
         Session session = getSession();
 
-        logger.debug("Searching for order with " + propertyName + " = " + value);
+        logger.debug("Searching with " + propertyName + " = " + value);
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<T> query = builder.createQuery( type );
