@@ -53,4 +53,7 @@ src/main/resources/database.properties
 src/test/resources/database.properties
 # sql dump
 src/main/resources/dump.sql
+# hibernate configuration
+src/main/resources/hibernate.cfg.xml
+src/test/resources/hibernate.cfg.xml
 
