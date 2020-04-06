@@ -2,7 +2,8 @@
 <html>
 <c:import url="head.jsp" />
 <body>
-<h2>Hello World!</h2>
-<a href="/HappyHabits/profile">Click here to look at your profile</a>
+<c:import url="head.jsp" />
+<body>
+<c:import url="nav.jsp" />
 </body>
 </html>

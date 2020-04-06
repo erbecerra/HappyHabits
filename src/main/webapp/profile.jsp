@@ -10,15 +10,22 @@
 <html>
 <c:import url="head.jsp" />
 <body>
+<c:import url="nav.jsp" />
 Welcome to Poke Habits ${user[0].firstName},
 
-<h1>Profile</h1>
-<table class="table table-striped">
-        <tr><td>First Name</td><td>${user[0].firstName}</td></tr>
-        <tr><td>Last Name</td><td>${user[0].lastName}</td></tr>
-        <tr><td>Username</td><td>${user[0].userName}</td></tr>
-        <tr><td>Date of Birth</td><td>${user[0].dateOfBirth}</td></tr>
-</table>
+<div class="container bg-dark text-white">
+    <div class="content">
+        <h1>Profile</h1>
+        <table class="table table-striped">
+            <tr><td>First Name</td><td>${user[0].firstName}</td></tr>
+            <tr><td>Last Name</td><td>${user[0].lastName}</td></tr>
+            <tr><td>Username</td><td>${user[0].userName}</td></tr>
+            <tr><td>Date of Birth</td><td>${user[0].dateOfBirth}</td></tr>
+        </table>
+    </div>
+</div>
+
+
 
 </body>
 </html>
