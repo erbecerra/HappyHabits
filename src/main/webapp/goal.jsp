@@ -9,7 +9,9 @@
 <div class="content">
 
     <div class="content">
-        <form action="goal.jsp">
+        here are all your goals
+
+        <form action="goals.jsp">
 
         </form>
 

@@ -18,6 +18,10 @@
 
         <mapping class="entity.User"/>
         <mapping class="entity.Role"/>
+        <mapping class="entity.Goal"/>
+        <mapping class="entity.Log"/>
+        <mapping class="entity.User"/>
+        <mapping class="entity.Pokemon"/>
 
     </session-factory>
 
