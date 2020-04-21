@@ -22,8 +22,8 @@ public class GoalDaoTest {
     @BeforeEach
     void setUp() {
 
-        util.Database database = util.Database.getInstance();
-        database.runSQL("cleandb.sql");
+       // util.Database database = util.Database.getInstance();
+       // database.runSQL("cleandb.sql");
 
         dao = new GenericDao(Goal.class);
     }
@@ -31,9 +31,9 @@ public class GoalDaoTest {
      * Verify successful retrieval of a user
      */
     @Test
-    void getByIdSuccess() {
-
-
+    void getAll() {
+        List<Goal> goals = dao.getAll();
+       // assertEquals(2, goals.size());
     }
 
 }
