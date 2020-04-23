@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.Goal;
 import entity.Role;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -90,6 +91,21 @@ class UserDaoTest {
     void getAllSuccess() {
         List<User> users = dao.getAll();
         assertEquals(6, users.size());
+    }
+
+    /**
+     * Verify successful retrieval of all users
+     */
+    @Test
+    void addGoalsToUser() {
+        User user = (User)dao.getById(6);
+
+        Goal goal = new Goal(user, "Test Goal", LocalDate.parse("2020-05-30"));
+        user.addGoal(goal);
+
+        dao.insert(goal);
+        User getUser = (User)dao.getById(user.getId());
+
     }
 
 }

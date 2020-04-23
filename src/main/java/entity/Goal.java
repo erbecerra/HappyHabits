@@ -3,7 +3,9 @@ package entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Goal")
 @Table(name = "goal")
@@ -18,7 +20,7 @@ public class Goal {
     private String goalName;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDate endDate;
 
     @ManyToOne
     @JoinColumn(name = "user_id",
@@ -26,10 +28,22 @@ public class Goal {
     )
     private User user;
 
+    @OneToOne(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Pokemon> allPokemon = new HashSet<>();
+
     public int getId() {
         return id;
     }
 
+    public Goal() {
+
+    }
+
+    public Goal(User user, String goalName, LocalDate endDate) {
+        this.user = user;
+        this.goalName = goalName;
+        this.endDate = endDate;
+    }
 
     public void setId(int id) {
         this.id = id;
@@ -60,11 +74,11 @@ public class Goal {
         this.goalName = goalName;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 }

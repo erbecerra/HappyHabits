@@ -55,7 +55,4 @@ public class Log {
         this.success = success;
     }
 
-
-
-
 }

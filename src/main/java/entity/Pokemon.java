@@ -6,7 +6,6 @@ import javax.persistence.*;
 
 public class Pokemon {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
@@ -18,16 +17,13 @@ public class Pokemon {
     @Column(name = "pokemon_description")
     private String description;
 
-    @Column(name = "user_name")
-    private String userName;
-
     @ManyToOne
     @JoinColumn(name = "user_id",
-            foreignKey = @ForeignKey(name = "role_user_user_id_fk")
+            foreignKey = @ForeignKey(name = "pokemon_user_user_id_fk")
     )
     private User user;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "goal_id",
             foreignKey = @ForeignKey(name = "goal_pokemon_id_fk")
     )
@@ -45,10 +41,6 @@ public class Pokemon {
         this.description = description;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public void setUser(User user) {
         this.user = user;
     }
@@ -63,10 +55,6 @@ public class Pokemon {
 
     public String getDescription() {
         return description;
-    }
-
-    public String getUserName() {
-        return userName;
     }
 
     public User getUser() {
