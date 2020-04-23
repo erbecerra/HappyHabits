@@ -36,6 +36,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Goal> goals = new HashSet<>();
+
     /**
      * Instantiates a new User.
      */
@@ -148,7 +151,7 @@ public class User {
     }
 
     /**
-     * Gets orders.
+     * Gets roles.
      *
      * @return the orders
      */
@@ -157,7 +160,7 @@ public class User {
     }
 
     /**
-     * Sets orders.
+     * Sets roles.
      *
      * @param roles the roles
      */
@@ -166,7 +169,7 @@ public class User {
     }
 
     /**
-     * Add order.
+     * Add role
      *
      * @param role the roles
      */
@@ -183,6 +186,34 @@ public class User {
     public void removeRole(Role role) {
         roles.remove(role);
         role.setUser(null);
+    }
+
+    public Set<Goal> getGoals() {
+        return goals;
+    }
+
+    public void setGoals(Set<Goal> goals) {
+        this.goals = goals;
+    }
+
+    /**
+     * Add goal
+     *
+     * @param goal the goal to add
+     */
+    public void addGoal(Goal goal) {
+        goals.add(goal);
+        goal.setUser(this);
+    }
+
+    /**
+     * Remove role.
+     *
+     * @param goal the goal to remove
+     */
+    public void removeGoal(Goal goal) {
+        goals.remove(goal);
+        goal.setUser(null);
     }
 
     @Override

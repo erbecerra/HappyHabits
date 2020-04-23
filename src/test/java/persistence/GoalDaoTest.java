@@ -1,15 +1,9 @@
 package persistence;
 
-
 import entity.Goal;
-import entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.time.LocalDate;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GoalDaoTest {
 
@@ -34,6 +28,12 @@ public class GoalDaoTest {
     void getAll() {
         List<Goal> goals = dao.getAll();
        // assertEquals(2, goals.size());
+    }
+
+    @Test
+    void getAllByUserID() {
+        List<Goal> goals = dao.getAllByEntityID("user", 8);
+        // assertEquals(2, goals.size());
     }
 
 }

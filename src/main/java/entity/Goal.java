@@ -20,17 +20,38 @@ public class Goal {
     @Column(name = "end_date")
     private Date endDate;
 
-    @Column(name = "user_id")
-    private int userID;
+    @ManyToOne
+    @JoinColumn(name = "user_id",
+            foreignKey = @ForeignKey(name = "goal_user_user_id_fk")
+    )
+    private User user;
 
     public int getId() {
         return id;
     }
 
+
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     * Gets user.
+     *
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
     public String getGoalName() {
         return goalName;
     }
@@ -45,13 +66,5 @@ public class Goal {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    public int getUserID() {
-        return userID;
-    }
-
-    public void setUserID(int userID) {
-        this.userID = userID;
     }
 }

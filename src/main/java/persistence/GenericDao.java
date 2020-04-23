@@ -1,5 +1,6 @@
 package persistence;
 
+import entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
@@ -115,6 +116,26 @@ public class GenericDao<T> {
 
         query.where(builder.like(propertyPath, "%" + value + "%"));
 
+        List<T> entities = session.createQuery( query ).getResultList();
+        session.close();
+        return entities;
+    }
+
+
+    /**
+     * Get entity by an int property, like Primary keys, or foreign keys
+     * sample usage: getByPropertyLike("user_id", 1234)
+     *
+     * @param propertyName entity property to search by
+     * @param id value of the property to search for
+     * @return list of entities meeting the criteria search
+     */
+    public List<T> getAllByEntityID(String propertyName, int id) {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from( type );
+        query.select(root).where(builder.equal(root.get(propertyName),id));
         List<T> entities = session.createQuery( query ).getResultList();
         session.close();
         return entities;
