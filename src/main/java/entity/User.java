@@ -237,7 +237,6 @@ public class User {
         pokemon.setUser(this);
     }
 
-
     /**
      * Remove pokemon.
      *

@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 /**
- *
+ * Entity for user roles, to be used for authentication
  */
 @Entity(name = "Role")
 @Table(name = "role")
@@ -30,6 +30,9 @@ public class Role {
     )
     private User user;
 
+    /**
+     * No parameter constructor
+     */
     public Role() {
 
     }
