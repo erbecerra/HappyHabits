@@ -21,10 +21,8 @@ public class GoalDaoTest {
      */
     @BeforeEach
     void setUp() {
-
-       // util.Database database = util.Database.getInstance();
-       // database.runSQL("cleandb.sql");
-
+        util.Database database = util.Database.getInstance();
+        database.runSQL("cleandb.sql");
         dao = new GenericDao(Goal.class);
     }
 
@@ -42,13 +40,13 @@ public class GoalDaoTest {
     @Test
     void getAll() {
         List<Goal> goals = dao.getAll();
-       // assertEquals(2, goals.size());
+        assertEquals(6, goals.size());
     }
 
     @Test
     void getAllByUserID() {
-        List<Goal> goals = dao.getAllByEntityID("user", 8);
-        // assertEquals(2, goals.size());
+        List<Goal> goals = dao.getAllByEntityID("user", 1);
+        assertEquals(2, goals.size());
     }
 
     /**
@@ -69,34 +67,12 @@ public class GoalDaoTest {
     }
 
     /**
-     * Verify successful insert of a user
-     */
-    @Test
-    void insertWithRoleSuccess() {
-
-        String userName = "fflintstone";
-        User newUser = new User("Fred", "Flintstone", userName, LocalDate.parse("1168-01-01"));
-
-        String roleName = "admin";
-        Role role = new Role(newUser,roleName, userName);
-
-        newUser.addRole(role);
-
-        int id = dao.insert(newUser);
-
-        assertNotEquals(0,id);
-        User insertedUser = (User)dao.getById(id);
-        assertEquals(newUser, insertedUser);
-        assertEquals(1, insertedUser.getRoles().size());
-    }
-
-    /**
-     * Verify successful delete of user
+     * Verify successful delete of goal
      */
     @Test
     void deleteSuccess() {
-        dao.delete(dao.getById(3));
-        assertNull(dao.getById(3));
+        dao.delete(dao.getById(6));
+        assertNull(dao.getById(6));
     }
 
 }

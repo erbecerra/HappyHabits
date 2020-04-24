@@ -29,7 +29,10 @@ public class Goal {
     private User user;
 
     @OneToOne(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Pokemon> allPokemon = new HashSet<>();
+    private Pokemon pokemon = new Pokemon();
+
+    @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Log> logs = new HashSet<>();
 
     public int getId() {
         return id;

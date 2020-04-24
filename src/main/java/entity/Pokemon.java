@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
+@Entity(name = "Pokemon")
+@Table(name = "pokemon")
 public class Pokemon {
 
     @Id
@@ -12,7 +14,7 @@ public class Pokemon {
     private int id;
 
     @Column(name = "pokemon_name")
-    private String name;
+    private String pokemonName;
 
     @Column(name = "pokemon_description")
     private String description;
@@ -33,8 +35,8 @@ public class Pokemon {
 
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String pokemonName) {
+        this.pokemonName = pokemonName;
     }
 
     public void setDescription(String description) {
@@ -49,8 +51,8 @@ public class Pokemon {
         this.goal = goal;
     }
 
-    public String getName() {
-        return name;
+    public String getPokemonNameName() {
+        return pokemonName;
     }
 
     public String getDescription() {

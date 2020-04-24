@@ -14,8 +14,19 @@ public class Log {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
-    @Column(name = "goal_id")
-    private String goalID;
+    public Goal getGoal() {
+        return goal;
+    }
+
+    public void setGoal(Goal goal) {
+        this.goal = goal;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "goal_id",
+            foreignKey = @ForeignKey(name = "log_goal_goal_id_fk")
+    )
+    private Goal goal;
 
     @Column(name = "date")
     private Date date;
@@ -29,14 +40,6 @@ public class Log {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getGoalID() {
-        return goalID;
-    }
-
-    public void setGoalID(String goalID) {
-        this.goalID = goalID;
     }
 
     public Date getDate() {
