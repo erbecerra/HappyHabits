@@ -49,22 +49,6 @@ public class GoalDaoTest {
         assertEquals(2, goals.size());
     }
 
-    /**
-     * Verify successful insert of a user
-     */
-    @Test
-    void insertSuccess() {
-        GenericDao userDao = new GenericDao(User.class);
-        User user = (User)userDao.getById(6);
-
-        Goal goal = new Goal(user, "Goal Dao Test", LocalDate.parse("2020-05-30"));
-        user.addGoal(goal);
-        int id = dao.insert(goal);
-
-        assertNotEquals(0,id);
-        Goal insertedGoal = (Goal)dao.getById(id);
-        assertNotNull(insertedGoal);
-    }
 
     /**
      * Verify successful delete of goal
