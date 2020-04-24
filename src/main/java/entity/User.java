@@ -39,6 +39,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Goal> goals = new HashSet<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Pokemon> allPokemon = new HashSet<>();
+
     /**
      * Instantiates a new User.
      */
@@ -207,13 +210,41 @@ public class User {
     }
 
     /**
-     * Remove role.
+     * Remove goal.
      *
      * @param goal the goal to remove
      */
     public void removeGoal(Goal goal) {
         goals.remove(goal);
         goal.setUser(null);
+    }
+
+    public Set<Pokemon> getAllPokemon() {
+        return allPokemon;
+    }
+
+    public void setAllPokemon(Set<Pokemon> allPokemon) {
+        this.allPokemon = allPokemon;
+    }
+
+    /**
+     * Add Pokemon
+     *
+     * @param pokemon the goal to add
+     */
+    public void addPokemon(Pokemon pokemon) {
+        allPokemon.add(pokemon);
+        pokemon.setUser(this);
+    }
+
+    /**
+     * Remove pokemon.
+     *
+     * @param pokemon the goal to remove
+     */
+    public void removePokemon(Pokemon pokemon) {
+        allPokemon.remove(pokemon);
+        pokemon.setUser(null);
     }
 
     @Override
