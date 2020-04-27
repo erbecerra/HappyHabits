@@ -28,7 +28,7 @@ public class GoalDaoTest {
 
     /**
      * Verify successful retrieval of a user
-     */
+
     @Test
     void getByIdSuccess() {
         Goal retrievedGoal = (Goal)dao.getById(1);

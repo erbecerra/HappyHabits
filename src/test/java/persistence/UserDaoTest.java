@@ -86,7 +86,7 @@ class UserDaoTest {
 
     /**
      * Verify successful retrieval of all users
-     */
+
     @Test
     void getAllSuccess() {
         List<User> users = dao.getAll();
@@ -95,7 +95,7 @@ class UserDaoTest {
 
     /**
      * Verify successful retrieval of all users
-     */
+
     @Test
     void addGoalsToUser() {
         User user = (User)dao.getById(6);
@@ -107,5 +107,6 @@ class UserDaoTest {
         User getUser = (User)dao.getById(user.getId());
 
     }
+     */
 
 }
