@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.ejb.Local;
@@ -12,6 +13,7 @@ import java.util.Date;
  */
 @Entity(name = "Log")
 @Table(name = "log")
+@Data
 public class Log {
 
     /**
@@ -46,10 +48,12 @@ public class Log {
     /**
      * No parameter constructor
      */
-    public Log() {}
+    public Log() {
+    }
 
     /**
      * Constructor with initial values
+     *
      * @param goal
      * @param date
      * @param success
@@ -58,70 +62,6 @@ public class Log {
         this.goal = goal;
         this.date = date;
         this.success = success;
-    }
-
-    /**
-     * get the log ID
-     * @return
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * set the log ID
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * get the date of the log
-     * @return date
-     */
-    public LocalDate getDate() {
-        return date;
-    }
-
-    /**
-     * set the date of the log
-     * @param date
-     */
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    /**
-     * If the log was a success
-     * @return succcess
-     */
-    public boolean isSuccess() {
-        return success;
-    }
-
-    /**
-     * set the success
-     * @param success
-     */
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    /**
-     * set the goal for this log
-     * @return goal
-     */
-    public Goal getGoal() {
-        return goal;
-    }
-
-    /**
-     * sets the goal associated with this log
-     * @param goal
-     */
-    public void setGoal(Goal goal) {
-        this.goal = goal;
     }
 
 }

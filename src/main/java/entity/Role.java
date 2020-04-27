@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -10,13 +11,13 @@ import java.util.Objects;
  */
 @Entity(name = "Role")
 @Table(name = "role")
+@Data
 public class Role {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
-
 
     @Column(name = "user_name")
     private String userName;
@@ -43,49 +44,6 @@ public class Role {
         this.userName = userName;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
-    /**
-     * Gets user.
-     *
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * Sets user.
-     *
-     * @param user the user
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", roleName='" + roleName + '\'' +
-                ", userName= '" + userName + '\'' +
-                '}';
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -96,9 +54,4 @@ public class Role {
                 Objects.equals(roleName, role.roleName);
     }
 
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id,  roleName, userName);
-    }
 }

@@ -1,6 +1,8 @@
 package entity;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -14,6 +16,7 @@ import java.util.Set;
  */
 @Entity(name = "User")
 @Table(name = "user")
+@Data
 public class User {
 
     @Id
@@ -27,7 +30,7 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-     @Column(name = "user_name")
+    @Column(name = "user_name")
     private String userName;
 
     @Column(name = "date_of_birth")
@@ -51,10 +54,10 @@ public class User {
     /**
      * Instantiates a new User.
      *
-     * @param firstName the first name
-     * @param lastName  the last name
-     * @param userName  the user name
-     * @param dateOfBirth  the date of birth
+     * @param firstName   the first name
+     * @param lastName    the last name
+     * @param userName    the user name
+     * @param dateOfBirth the date of birth
      */
     public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
         this.firstName = firstName;
@@ -63,113 +66,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
     }
 
-    /**
-     * Gets first name.
-     *
-     * @return the first name
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * Sets first name.
-     *
-     * @param firstName the first name
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * Gets last name.
-     *
-     * @return the last name
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * Sets last name.
-     *
-     * @param lastName the last name
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    /**
-     * Gets user name.
-     *
-     * @return the user name
-     */
-    public String getUserName() {
-        return userName;
-    }
-
-    /**
-     * Sets user name.
-     *
-     * @param userName the user name
-     */
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    /**
-     * Gets date of birth
-     *
-     * @return the date of birth
-     */
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    /**
-     * Sets date of birth
-     *
-     * @param dateOfBirth the date of birth
-     */
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    /**
-     * Gets id.
-     *
-     * @return the id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * Sets id.
-     *
-     * @param id the id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets roles.
-     *
-     * @return the orders
-     */
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    /**
-     * Sets roles.
-     *
-     * @param roles the roles
-     */
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 
     /**
      * Add role
@@ -191,14 +87,6 @@ public class User {
         role.setUser(null);
     }
 
-    public Set<Goal> getGoals() {
-        return goals;
-    }
-
-    public void setGoals(Set<Goal> goals) {
-        this.goals = goals;
-    }
-
     /**
      * Add goal
      *
@@ -217,14 +105,6 @@ public class User {
     public void removeGoal(Goal goal) {
         goals.remove(goal);
         goal.setUser(null);
-    }
-
-    public Set<Pokemon> getAllPokemon() {
-        return allPokemon;
-    }
-
-    public void setAllPokemon(Set<Pokemon> allPokemon) {
-        this.allPokemon = allPokemon;
     }
 
     /**
@@ -248,17 +128,6 @@ public class User {
     }
 
     @Override
-    public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", userName='" + userName + '\'' +
-                ", id=" + id +
-                ", dateOfBirth=" + dateOfBirth +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -269,12 +138,4 @@ public class User {
                 Objects.equals(userName, user.userName) &&
                 Objects.equals(dateOfBirth, user.dateOfBirth);
     }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(firstName, lastName, userName, id, dateOfBirth);
-    }
-
-
 }

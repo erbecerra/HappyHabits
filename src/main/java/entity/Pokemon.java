@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import javax.persistence.*;
  */
 @Entity(name = "Pokemon")
 @Table(name = "pokemon")
+@Data
 public class Pokemon {
 
     /**
@@ -58,6 +60,7 @@ public class Pokemon {
 
     /**
      * Constructor that initializes some values
+     *
      * @param name
      * @param description
      * @param user
@@ -68,69 +71,5 @@ public class Pokemon {
         this.description = description;
         this.user = user;
         this.goal = goal;
-    }
-
-    /**
-     * set Pokemon name
-     * @param pokemonName
-     */
-    public void setName(String pokemonName) {
-        this.pokemonName = pokemonName;
-    }
-
-    /**
-     * set pokemon description
-     * @param description
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
-     * set the user
-     * @param user
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
-     *
-     * @param goal
-     */
-    public void setGoal(Goal goal) {
-        this.goal = goal;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getPokemonNameName() {
-        return pokemonName;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getDescription() {
-        return description;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public Goal getGoal() {
-        return goal;
     }
 }

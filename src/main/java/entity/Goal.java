@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -9,9 +10,10 @@ import java.util.Set;
 
 /**
  * Goal entity
-*/
+ */
 @Entity(name = "Goal")
 @Table(name = "goal")
+@Data
 public class Goal {
 
     /**
@@ -64,6 +66,7 @@ public class Goal {
 
     /**
      * Goal constructor
+     *
      * @param user
      * @param goalName
      * @param endDate
@@ -74,69 +77,4 @@ public class Goal {
         this.endDate = endDate;
     }
 
-    /**
-     * goal id
-     * @return id
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * set the goal id
-     * @param id
-     */
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    /**
-     * Gets user.
-     *
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * Sets user.
-     *
-     * @param user the user
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    /**
-     * Goal name
-     * @return goalName
-     */
-    public String getGoalName() {
-        return goalName;
-    }
-
-    /**
-     * Set goal name
-     * @param goalName
-     */
-    public void setGoalName(String goalName) {
-        this.goalName = goalName;
-    }
-
-    /**
-     * Goal end date
-     * @return endDate
-     */
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    /**
-     * Set end date
-     * @param endDate
-     */
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
 }
