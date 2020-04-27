@@ -19,7 +19,7 @@
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/Goals">Goals</a>
+                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/goals">Goals</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#services">Poke dex</a>

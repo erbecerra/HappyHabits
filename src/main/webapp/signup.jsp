@@ -40,7 +40,7 @@
                         <input type="password" class="form-control" placeholder="Enter password" id="password"
                                name="password">
                     </div>
-                    <input class="btn btn-danger" type="SUBMIT" value="Log In">
+                    <input class="btn btn-danger" type="SUBMIT" value="Sign up">
                 </form>
             </div>
         </div>
