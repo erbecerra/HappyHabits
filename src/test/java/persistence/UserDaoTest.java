@@ -1,6 +1,7 @@
 package persistence;
 
 import entity.Goal;
+import entity.Pokemon;
 import entity.Role;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,16 +58,10 @@ class UserDaoTest {
      * Verify successful insert of a user
      */
     @Test
-    void insertWithRoleSuccess() {
-
-        String userName = "fflintstone";
-        User newUser = new User("Fred", "Flintstone", userName, LocalDate.parse("1168-01-01"));
-
-        String roleName = "admin";
-        Role role = new Role(newUser,roleName, userName);
-
+    void insertUserWithRoleSuccess() {
+        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1168-01-01"));
+        Role role = new Role(newUser,"admin", newUser.getUserName());
         newUser.addRole(role);
-
         int id = dao.insert(newUser);
 
         assertNotEquals(0,id);
@@ -86,7 +81,7 @@ class UserDaoTest {
 
     /**
      * Verify successful retrieval of all users
-
+    */
     @Test
     void getAllSuccess() {
         List<User> users = dao.getAll();
@@ -95,18 +90,18 @@ class UserDaoTest {
 
     /**
      * Verify successful retrieval of all users
-
+    */
     @Test
-    void addGoalsToUser() {
-        User user = (User)dao.getById(6);
-
-        Goal goal = new Goal(user, "Test Goal", LocalDate.parse("2020-05-30"));
-        user.addGoal(goal);
-
-        dao.insert(goal);
-        User getUser = (User)dao.getById(user.getId());
-
+    void insertUserWithGoalSuccess() {
+        User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"));
+        Goal goal = new Goal(newUser, "Unit Test Goal", LocalDate.parse("2020-05-30"));
+        Pokemon pokemon = new Pokemon("pikachu", "electric", newUser, goal);
+        goal.setPokemon(pokemon);
+        newUser.addGoal(goal);
+        int id = dao.insert(newUser);
+        User insertedUser = (User)dao.getById(id);
+        assertNotNull(insertedUser);
+        assertEquals(newUser, insertedUser);
+        assertEquals(1, insertedUser.getGoals().size());
     }
-     */
-
 }

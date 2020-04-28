@@ -1,6 +1,7 @@
 package entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -13,7 +14,8 @@ import java.util.Set;
  */
 @Entity(name = "Goal")
 @Table(name = "goal")
-@Data
+@Getter
+@Setter
 public class Goal {
 
     /**
@@ -75,6 +77,26 @@ public class Goal {
         this.user = user;
         this.goalName = goalName;
         this.endDate = endDate;
+    }
+
+    /**
+     * Add log
+     *
+     * @param log the goal to add
+     */
+    public void addLog(Log log) {
+        logs.add(log);
+        log.setGoal(this);
+    }
+
+    /**
+     * Remove log.
+     *
+     * @param log the goal to remove
+     */
+    public void removeLog(Log log) {
+        logs.remove(log);
+        log.setGoal(null);
     }
 
 }

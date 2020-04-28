@@ -1,6 +1,8 @@
 package entity;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.ejb.Local;
@@ -13,7 +15,8 @@ import java.util.Date;
  */
 @Entity(name = "Log")
 @Table(name = "log")
-@Data
+@Getter
+@Setter
 public class Log {
 
     /**
