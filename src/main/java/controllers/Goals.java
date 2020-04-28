@@ -1,6 +1,7 @@
 package controllers;
 
 import entity.Goal;
+import entity.User;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -19,11 +20,11 @@ public class Goals extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        GenericDao dao = new GenericDao(Goal.class);
-
-        List<Goal> goals = dao.getAll();
-        req.setAttribute("goals", goals);
-
+        GenericDao goalDao = new GenericDao(Goal.class);
+        GenericDao userDao = new GenericDao(User.class);
+        String login = req.getRemoteUser();
+        User user = (User)userDao.getByPropertyEqual("userName", login).get(0);
+        req.setAttribute("goals", goalDao.getAllByEntityID("user", user.getId()));
         RequestDispatcher dispatcher = req.getRequestDispatcher("/goals.jsp");
         dispatcher.forward(req, resp);
     }

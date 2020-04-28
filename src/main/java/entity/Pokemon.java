@@ -1,6 +1,7 @@
 package entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -10,7 +11,8 @@ import javax.persistence.*;
  */
 @Entity(name = "Pokemon")
 @Table(name = "pokemon")
-@Data
+@Getter
+@Setter
 public class Pokemon {
 
     /**
@@ -67,9 +69,9 @@ public class Pokemon {
      * @param goal
      */
     public Pokemon(String name, String description, User user, Goal goal) {
-        this.pokemonName = name;
-        this.description = description;
         this.user = user;
         this.goal = goal;
+        this.pokemonName = name;
+        this.description = description;
     }
 }
