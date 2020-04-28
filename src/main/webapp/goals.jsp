@@ -18,26 +18,13 @@
                 <h2>Goals</h2>
                 <div> + Add a goal </div>
                 <table class="table table-striped">
-                    <tr>
-                        <td>POkemon picture/poke ball</td>
-                        <td>${goals[0].goalName}</td>
-                        <td>Daily @ 7:00 pm 20 days left to reveal pokemon</td>
-                    </tr>
-                    <tr>
-                        <td>POkemon picture/poke ball</td>
-                        <td>${goals[0].endDate}</td>
-                        <td>Daily @ 7:00 pm 20 days left to reveal pokemon</td>
-                    </tr>
-                    <tr>
-                        <td>POkemon picture/poke ball</td>
-                        <td>${goals[0].goalName}</td>
-                        <td>Daily @ 7:00 pm 30 days left to evolve your pokemon</td>
-                    </tr>
-                    <tr>
-                        <td>POkemon picture/poke ball</td>
-                        <td>${goals[0].endDate}</td>
-                        <td>Daily @ 7:00 pm 20 days left to reveal pokemon</td>
-                    </tr>
+                    <c:forEach items="${goals}" var="goal">
+                        <tr>
+                            <td>${goal.pokemon.pokemonName}</td>
+                            <td>${goal.goalName}</td>
+                            <td>${goal.endDate}</td>
+                        </tr>
+                    </c:forEach>
                 </table>
             </div>
         </div>
