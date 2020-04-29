@@ -33,12 +33,6 @@ public class Goal {
     private String goalName;
 
     /**
-     * When the goal will end
-     */
-    @Column(name = "end_date")
-    private LocalDate endDate;
-
-    /**
      * FK User associated with this goal
      */
     @ManyToOne
@@ -59,6 +53,10 @@ public class Goal {
     @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Log> logs = new HashSet<>();
 
+    @Column(name="goal_type")
+    @Enumerated(EnumType.ORDINAL)
+    private GoalType goalType;
+
     /**
      * No parameter constructor
      */
@@ -71,12 +69,12 @@ public class Goal {
      *
      * @param user
      * @param goalName
-     * @param endDate
+     * @param goalType
      */
-    public Goal(User user, String goalName, LocalDate endDate) {
+    public Goal(User user, String goalName, GoalType goalType) {
         this.user = user;
         this.goalName = goalName;
-        this.endDate = endDate;
+        this.goalType = goalType;
     }
 
     /**

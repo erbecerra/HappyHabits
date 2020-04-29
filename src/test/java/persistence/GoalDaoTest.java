@@ -1,6 +1,7 @@
 package persistence;
 
 import entity.Goal;
+import entity.GoalType;
 import entity.Pokemon;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -62,8 +63,8 @@ public class GoalDaoTest {
     void getGoalsByUserID() {
         List<Goal> goals = goalDao.getAllByEntityID("user", 1);
         assertEquals(2, goals.size());
-        assertEquals("Test 1", goals.get(0).getGoalName());
-        assertEquals("Test 2", goals.get(1).getGoalName());
+        assertEquals("Test 5", goals.get(0).getGoalName());
+        assertEquals("Test 6", goals.get(1).getGoalName());
     }
 
     /**
@@ -73,14 +74,14 @@ public class GoalDaoTest {
     void insertGoalSuccess() {
         User user = (User)userDao.getById(3);
 
-        Goal goal = new Goal(user,"Insert Unit Test", LocalDate.now());
+        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
         goal.setPokemon(pokemon);
         int id = goalDao.insert(goal);
         List<Goal> goals = goalDao.getAllByEntityID("user", 3);
 
         assertNotNull(id);
-        assertEquals(3, goals.size());
+        assertEquals(4, goals.size());
     }
 
     /**
@@ -89,12 +90,12 @@ public class GoalDaoTest {
     @Test
     void saveOrUpdateGoalSuccess() {
         User user = (User)userDao.getById(3);
-        Goal goal = new Goal(user,"Insert Unit Test", LocalDate.now());
+        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
         goal.setPokemon(pokemon);
         goalDao.saveOrUpdate(goal);
         List<Goal> goals = goalDao.getAllByEntityID("user", 3);
-        assertEquals(3, goals.size());
+        assertEquals(4, goals.size());
     }
 
     /**
