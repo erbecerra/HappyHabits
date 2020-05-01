@@ -17,7 +17,6 @@ import java.util.Set;
 @Table(name = "goal")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Goal {
 
     /**

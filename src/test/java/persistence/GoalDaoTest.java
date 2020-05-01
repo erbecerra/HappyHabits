@@ -73,7 +73,6 @@ public class GoalDaoTest {
     @Test
     void insertGoalSuccess() {
         User user = (User)userDao.getById(3);
-
         Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
         goal.setPokemon(pokemon);

@@ -18,7 +18,6 @@ import java.util.Date;
 @Table(name = "log")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Log {
 
     /**

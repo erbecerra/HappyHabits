@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Table(name = "pokemon")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Pokemon {
 
     /**
