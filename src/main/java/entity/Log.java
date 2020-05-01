@@ -1,6 +1,7 @@
 package entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -17,6 +18,7 @@ import java.util.Date;
 @Table(name = "log")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Log {
 
     /**

@@ -1,9 +1,6 @@
 package persistence;
 
-import entity.Goal;
-import entity.Pokemon;
-import entity.Role;
-import entity.User;
+import entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
@@ -94,7 +91,7 @@ class UserDaoTest {
     @Test
     void insertUserWithGoalSuccess() {
         User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"));
-        Goal goal = new Goal(newUser, "Unit Test Goal", LocalDate.parse("2020-05-30"));
+        Goal goal = new Goal(newUser, "Unit Test Goal", GoalType.DAILY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", newUser, goal);
         goal.setPokemon(pokemon);
         newUser.addGoal(goal);

@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -14,6 +15,7 @@ import java.util.Objects;
 @Table(name = "role")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Role {
 
     @Id

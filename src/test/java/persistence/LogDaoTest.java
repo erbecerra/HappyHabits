@@ -1,20 +1,16 @@
 package persistence;
 
-import entity.Goal;
-import entity.GoalType;
-import entity.Pokemon;
-import entity.User;
+import entity.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.time.LocalDate;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GoalDaoTest {
-
+public class LogDaoTest {
+    GenericDao logDao;
     GenericDao goalDao;
-    GenericDao userDao;
     /**
      * Run set up tasks before each test:
      * 1. execute sql which deletes everything from the table and inserts records)
@@ -24,18 +20,18 @@ public class GoalDaoTest {
     void setUp() {
         util.Database database = util.Database.getInstance();
         database.runSQL("cleandb.sql");
-         goalDao = new GenericDao(Goal.class);
-         userDao = new GenericDao(User.class);
+        logDao = new GenericDao(User.class);
+        goalDao = new GenericDao(Goal.class);
     }
 
     /**
      * Verify successful retrieval of a goal
-    */
+     */
     @Test
-    void getGoalByIdSuccess() {
-        Goal goal = (Goal)goalDao.getById(1);
-        assertNotNull(goal);
-        assertEquals("Test 1", goal.getGoalName());
+    void getLogByIdSuccess() {
+        Log log = (Log)logDao.getById(1);
+        assertNotNull(log);
+        assertEquals("Test 1", log.getDate());
     }
 
     /**

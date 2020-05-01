@@ -10,15 +10,17 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import java.util.Properties;
+import utilities.PropertiesLoader;
 
-public class PokeDao {
+public class PokeDao implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     public Pokemon  getPokemonByName (String name) throws Exception {
         Client client = ClientBuilder.newClient();
-        WebTarget target =
-                client.target("https://pokeapi.co/api/v2/pokemon/" + name + "/");
+        Properties properties = loadProperties("/database.properties");
+        WebTarget target = client.target(properties.getProperty("pokeapiurl") + name + "/");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
         Pokemon pokemon = null;
@@ -31,5 +33,12 @@ public class PokeDao {
         }
         return pokemon;
     }
+
+    //get pokemon picture
+
+    //get pokemon stats
+
+   // Locally cache resources and images whenever you request them.
+   // Use the correct user-agent header in API requests.
 
 }

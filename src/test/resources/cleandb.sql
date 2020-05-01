@@ -3,7 +3,7 @@ INSERT INTO user VALUES (1,'Joe','Coyne','jcoyne','supersecret1','1964-04-01'),(
 delete from role;
 INSERT INTO role VALUES (1,'jcoyne','registered',1),(2,'fhensen','registered',2);
 delete from goal;
-INSERT INTO goal VALUES (1,'Test 1','2020-08-20',1),(2,'Test 2','2020-08-20',1),(3,'Test 3','2020-08-20',2),(4,'Test 4','2020-08-20',3),(5,'Test 5','2020-08-20',3),(6,'Test 6','2020-08-20',6);
+INSERT INTO goal VALUES (1,'Test 1',3,1),(2,'Test 2',3,1),(3,'Test 3',3,2),(4,'Test 4',2,3),(5,'Test 5',1,3),(6,'Test 6',1,2);
 delete from pokemon;
 INSERT INTO pokemon VALUES (1,'Pikachu','electric pokemon',1, 1),(2,'Bulbasaur','grass, poison',2,3);
 delete from log;

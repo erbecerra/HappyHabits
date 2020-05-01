@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Table(name = "goal")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Goal {
 
     /**
@@ -31,12 +33,6 @@ public class Goal {
      */
     @Column(name = "goal_name")
     private String goalName;
-
-    /**
-     * When the goal will end
-     */
-    @Column(name = "end_date")
-    private LocalDate endDate;
 
     /**
      * FK User associated with this goal
@@ -59,6 +55,10 @@ public class Goal {
     @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Log> logs = new HashSet<>();
 
+    @Column(name="goal_type")
+    @Enumerated(EnumType.ORDINAL)
+    private GoalType goalType;
+
     /**
      * No parameter constructor
      */
@@ -71,12 +71,12 @@ public class Goal {
      *
      * @param user
      * @param goalName
-     * @param endDate
+     * @param goalType
      */
-    public Goal(User user, String goalName, LocalDate endDate) {
+    public Goal(User user, String goalName, GoalType goalType) {
         this.user = user;
         this.goalName = goalName;
-        this.endDate = endDate;
+        this.goalType = goalType;
     }
 
     /**
