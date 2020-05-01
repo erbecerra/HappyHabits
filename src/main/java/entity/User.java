@@ -1,5 +1,6 @@
 package entity;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -19,6 +20,7 @@ import java.util.Set;
 @Table(name = "user")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class User {
 
     @Id
@@ -129,6 +131,7 @@ public class User {
         pokemon.setUser(null);
     }
 
+    /*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -140,4 +143,6 @@ public class User {
                 Objects.equals(userName, user.userName) &&
                 Objects.equals(dateOfBirth, user.dateOfBirth);
     }
+    *
+     */
 }
