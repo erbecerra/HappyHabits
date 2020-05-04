@@ -92,7 +92,7 @@ class UserDaoTest {
     void insertUserWithGoalSuccess() {
         User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"));
         Goal goal = new Goal(newUser, "Unit Test Goal", GoalType.DAILY);
-        Pokemon pokemon = new Pokemon("pikachu", "electric", newUser, goal);
+        Pokemon pokemon = new Pokemon("pikachu", "electric", "something", newUser, goal);
         goal.setPokemon(pokemon);
         newUser.addGoal(goal);
         int id = dao.insert(newUser);

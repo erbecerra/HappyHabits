@@ -74,7 +74,7 @@ public class GoalDaoTest {
     void insertGoalSuccess() {
         User user = (User)userDao.getById(3);
         Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
-        Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
+        Pokemon pokemon = new Pokemon("pikachu", "electric", "something", user, goal);
         goal.setPokemon(pokemon);
         int id = goalDao.insert(goal);
         List<Goal> goals = goalDao.getAllByEntityID("user", 3);
@@ -90,7 +90,7 @@ public class GoalDaoTest {
     void saveOrUpdateGoalSuccess() {
         User user = (User)userDao.getById(3);
         Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
-        Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
+        Pokemon pokemon = new Pokemon("pikachu", "electric", "something", user, goal);
         goal.setPokemon(pokemon);
         goalDao.saveOrUpdate(goal);
         List<Goal> goals = goalDao.getAllByEntityID("user", 3);

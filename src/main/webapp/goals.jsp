@@ -22,7 +22,8 @@
                 <table class="table table-striped">
                     <c:forEach items="${goals}" var="goal">
                         <tr>
-                            <td>${goal.pokemon.pokemonName}</td>
+                            <td></td>
+                            <td>${goal.pokemon.pokemonName}${goal.pokemon.imageUrl}</td>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
                         </tr>

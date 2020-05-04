@@ -15,6 +15,10 @@ import utilities.PropertiesLoader;
 
 public class PokeDao implements PropertiesLoader {
 
+    public PokeDao() throws Exception {
+
+    }
+
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     public Pokemon  getPokemonByName (String name) throws Exception {
@@ -34,6 +38,25 @@ public class PokeDao implements PropertiesLoader {
         }
         return pokemon;
     }
+
+    public Pokemon getPokemonByID (int ID) throws Exception {
+        Client client = ClientBuilder.newClient();
+        Properties properties = loadProperties("/database.properties");
+        //properties.getProperty("pokeapiurl")
+        WebTarget target = client.target("https://pokeapi.co/api/v2/pokemon/" + ID + "/");
+        String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
+        ObjectMapper mapper = new ObjectMapper();
+        Pokemon pokemon = null;
+
+        try {
+            pokemon = mapper.readValue(response, Pokemon.class);
+        }
+        catch (JsonProcessingException e) {
+            logger.error(e);
+        }
+        return pokemon;
+    }
+
 
     //get pokemon picture
 
