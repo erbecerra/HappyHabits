@@ -20,7 +20,6 @@ import java.util.Set;
 @Table(name = "user")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class User {
 
     @Id

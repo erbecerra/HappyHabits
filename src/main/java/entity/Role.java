@@ -15,7 +15,6 @@ import java.util.Objects;
 @Table(name = "role")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Role {
 
     @Id

@@ -26,7 +26,7 @@ public class LogDaoTest {
 
     /**
      * Verify successful retrieval of a goal
-     */
+
     @Test
     void getLogByIdSuccess() {
         Log log = (Log)logDao.getById(1);
@@ -36,7 +36,7 @@ public class LogDaoTest {
 
     /**
      * Verify null goal when does not exist in database
-     */
+
     @Test
     void getGoalByIdFail() {
         Goal goal = (Goal)goalDao.getById(10);
@@ -45,7 +45,7 @@ public class LogDaoTest {
 
     /**
      * Verify successful retrieval of all goals
-     */
+
     @Test
     void getAllGoalsSuccess() {
         List<Goal> goals = goalDao.getAll();
@@ -54,7 +54,7 @@ public class LogDaoTest {
 
     /**
      * Verify successful retrieval of all goals by user ID
-     */
+
     @Test
     void getGoalsByUserID() {
         List<Goal> goals = goalDao.getAllByEntityID("user", 1);
@@ -65,10 +65,10 @@ public class LogDaoTest {
 
     /**
      * Verify successful insert of a goal
-     */
+
     @Test
     void insertGoalSuccess() {
-        User user = (User)userDao.getById(3);
+        User user = (User)goalDao.getById(3);
 
         Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
@@ -82,10 +82,10 @@ public class LogDaoTest {
 
     /**
      * Verify successful insert of a goal
-     */
+
     @Test
     void saveOrUpdateGoalSuccess() {
-        User user = (User)userDao.getById(3);
+        User user = (User)goalDao.getById(3);
         Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", user, goal);
         goal.setPokemon(pokemon);
@@ -96,11 +96,11 @@ public class LogDaoTest {
 
     /**
      * Verify successful delete of goal
-     */
+
     @Test
     void deleteGoalSuccess() {
         goalDao.delete(goalDao.getById(6));
         assertNull(goalDao.getById(6));
     }
-
+     */
 }

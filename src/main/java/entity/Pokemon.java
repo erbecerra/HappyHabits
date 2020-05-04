@@ -14,7 +14,6 @@ import javax.persistence.*;
 @Table(name = "pokemon")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Pokemon {
 
     /**
@@ -36,6 +35,12 @@ public class Pokemon {
      */
     @Column(name = "pokemon_description")
     private String description;
+
+    /**
+     * Pokemon image link from to Poke API
+     */
+    @Column(name = "image_url")
+    private String imageUrl;
 
     /**
      * FK user ID
@@ -67,13 +72,15 @@ public class Pokemon {
      *
      * @param name
      * @param description
+     * @param imageUrl
      * @param user
      * @param goal
      */
-    public Pokemon(String name, String description, User user, Goal goal) {
+    public Pokemon(String name, String description,String imageUrl,  User user, Goal goal) {
         this.user = user;
         this.goal = goal;
         this.pokemonName = name;
         this.description = description;
+        this.imageUrl = imageUrl;
     }
 }
