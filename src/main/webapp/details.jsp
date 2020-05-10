@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: estefaniebecerra
-  Date: 4/5/20
-  Time: 10:56 PM
+  Date: 5/10/20
+  Time: 12:19 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,21 +15,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Goals</h2>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addGoal">
-                    Add a goal
+                <h2>Goal Detail</h2>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logGoal">
+                   Log to goal
                 </button>
                 <br>
+                <h3>After x weeks you will get a surprise pokemon</h3>
+                ${goal}
+                ${pokemon}
                 <table class="table table-striped">
-                    <c:forEach items="${goals}" var="goal">
-                        <tr>
-                            <td></td>
-                            <td><img src="${goal.pokemon.imageUrl}" alt="">${goal.pokemon.pokemonName}</td>
-                            <td>${goal.goalName}</td>
-                            <td>${goal.goalType}</td>
-                            <td>Log Goal</td>
-                        </tr>
-                    </c:forEach>
+
                 </table>
             </div>
         </div>
@@ -39,7 +34,7 @@
 
 
 <!-- The Modal -->
-<div class="modal" id="addGoal">
+<div class="modal" id="logGoal">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -88,4 +83,3 @@
 <c:import url="footer.jsp"/>
 </body>
 </html>
-

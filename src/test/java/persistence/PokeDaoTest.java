@@ -1,7 +1,6 @@
 package persistence;
 
 import entity.Goal;
-import entity.GoalType;
 import entity.Pokemon;
 import entity.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -105,7 +104,7 @@ public class PokeDaoTest {
      * Verify successful delete of goal
      */
     @Test
-    void deleteGoalSuccess() {
+    void deletePokemonSuccess() {
         pokeDao.delete(pokeDao.getById(2));
         assertNull(pokeDao.getById(2));
     }

@@ -58,10 +58,10 @@ public class LogDaoTest {
      */
     @Test
     void getLogsByUserID() {
-        List<Goal> goals = logDao.getAllByEntityID("user", 1);
-        assertEquals(2, goals.size());
-        assertEquals("Test 5", goals.get(0).getGoalName());
-        assertEquals("Test 6", goals.get(1).getGoalName());
+        List<Log> logs = logDao.getAllByEntityID("goal", 1);
+        assertEquals(2, logs.size());
+        assertFalse(logs.get(0).isSuccess());
+        assertFalse(logs.get(1).isSuccess());
     }
 
     /**
