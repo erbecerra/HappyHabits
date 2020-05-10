@@ -16,16 +16,18 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Goals</h2>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGoal">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addGoal">
                     Add a goal
                 </button>
+                <br>
                 <table class="table table-striped">
                     <c:forEach items="${goals}" var="goal">
                         <tr>
                             <td></td>
-                            <td>${goal.pokemon.pokemonName}${goal.pokemon.imageUrl}</td>
+                            <td><img src="${goal.pokemon.imageUrl}" alt="">${goal.pokemon.pokemonName}</td>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
+                            <td>Log Goal</td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -71,6 +73,45 @@
                     </div>
                     <br>
                     <input class="btn btn-danger" type="SUBMIT" value="Add Goal">
+                </form>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="addGoal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Log Goal</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="log" value="yes">Yes
+                        </label>
+                    </div>
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="log" value="no">No
+                        </label>
+                    </div>
+                    <br>
+                    <input class="btn btn-danger" type="SUBMIT" value="Add Log">
                 </form>
             </div>
 

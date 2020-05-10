@@ -23,3 +23,15 @@ I did almost all of the work for the checkpoint 1. This includes creating the us
  I am going to include as far as pokemon go and if it will be smarter to split some things up some more. I 
  will work this out the next week as I only thought this through enough to get through the project plan. 
 
+###Week 4
+###Week 5
+### Week 6
+### Week 7
+### Week 8
+### Week 9
+### Week 10
+### Week 11
+### Week 12
+### Week 13
+### Week 14
+### Week 15

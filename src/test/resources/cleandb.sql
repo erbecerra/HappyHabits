@@ -5,6 +5,6 @@ INSERT INTO role VALUES (1,'jcoyne','registered',1),(2,'fhensen','registered',2)
 delete from goal;
 INSERT INTO goal VALUES (1,'Test 1',3,1),(2,'Test 2',3,1),(3,'Test 3',3,2),(4,'Test 4',2,3),(5,'Test 5',1,3),(6,'Test 6',1,2);
 delete from pokemon;
-INSERT INTO pokemon VALUES (1,'Pikachu','electric pokemon',1, 1),(2,'Bulbasaur','grass, poison',2,3);
+INSERT INTO pokemon VALUES (1,'Pikachu','electric pokemon',1, 1, 'something.com'),(2,'Bulbasaur','grass, poison',2,3, 'something.com');
 delete from log;
 INSERT INTO log VALUES (1,1,'2020-04-20',0),(2,1,'2020-04-23',0),(3,2,'2020-08-20',0);
