@@ -13,38 +13,37 @@
 - [x] Triple-check for Checkpoint 1: Problem statement, project plan, screen design and time log pushed to GitHub. 
 
 ### Week 4
-- [ ] Complete database design
+- [x] Complete database design
 - [x] Create the database and user table
 - [x] Create the user entity class and annotate for hibernate
-- [ ] Create user dao
-- [ ] Create the test database
-- [ ] Create user dao unit tests
+- [x] Create user dao
+- [x] Create the test database
+- [x] Create user dao unit tests
 - [ ] Weekly journal entry
 - [ ] Set up logging
-- [ ] Create class uml diagram
-- [ ] Prepare for Week 5 peer design/code review
+- [x] Prepare for Week 5 peer design/code review
 
 
 ### Week 5
 
-- [ ] Create the template for all jsps using bootstrap or materialize
+- [x] Create the template for all jsps using bootstrap or materialize
 - [ ] Weekly journal entry
-- [ ] Add the goals table
-- [ ] Add the goals entity
-- [ ] Create the goals dao
-- [ ] Create the goals dao unit tests
-- [ ] Add a jsp to display user and goals
+- [x] Add the goals table
+- [x] Add the goals entity
+- [x] Create the goals dao
+- [x] Create the goals dao unit tests
+- [x] Add a jsp to display user and goals
 
 ### Week 6
 
-- [ ] Create db on AWS
-- [ ] Deploy to AWS for first time
+- [x] Create db on AWS
+- [x] Deploy to AWS for first time
 - [ ] Weekly journal entry
-- [ ] Create pokemon table
-- [ ] Add the pokemon entity (test, dev and prod dbs)
-- [ ] Realize that these daos are repetitive. Refactor into a generic dao!
+- [x] Create pokemon table
+- [x] Add the pokemon entity (test, dev and prod dbs)
+- [x] Realize that these daos are repetitive. Refactor into a generic dao!
 - [ ] Add update and delete functionality in jsp for user and goals
-- [ ] Build the Pokedex jsp
+- [x] Build the Pokedex jsp
 - [ ] Build the goals add/update/delete jsp/jsps
 - [ ] Prepare for Checkpoint 2: Database designed and created, at least one DAO implemented with Hibernate, DAO is unit tested, Log4J is implemented (no System.out.printlns), class design and any other diagrams you plan to use have been created. 
 
@@ -76,7 +75,7 @@
 
 ### Week 10
 - [ ] Weekly journal entry
-- [ ] Implement Pokemon details in pokedex
+- [x] Implement Pokemon details in pokedex
 - [ ] Unit test all api integrations
 - [ ] Code review
 
