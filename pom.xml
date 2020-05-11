@@ -8,8 +8,7 @@
   <artifactId>HappyHabits</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>HappyHabits Maven Webapp</name>
-  <!-- FIXME change it to the project's website -->
+  <name>Poke Habits</name>
   <url>http://www.example.com</url>
 
   <properties>
@@ -27,6 +26,7 @@
     <jersey-version>2.29.1</jersey-version>
     <jackson-version>2.10.0</jackson-version>
     <lombok-verion>1.18.10</lombok-verion>
+    <hibernate-version>5.4.4.Final</hibernate-version>
   </properties>
   <dependencies>
     <dependency>
@@ -87,7 +87,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>5.4.4.Final</version>
+      <version>${hibernate-version}</version>
     </dependency>
 
     <!-- c3p0 - used to handle connection pooling with hibernate -->
@@ -95,7 +95,7 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-c3p0</artifactId>
-      <version>5.4.4.Final</version>
+      <version>${hibernate-version}</version>
     </dependency>
 
     <dependency>

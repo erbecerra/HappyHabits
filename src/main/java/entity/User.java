@@ -39,6 +39,9 @@ public class User {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
@@ -61,12 +64,14 @@ public class User {
      * @param lastName    the last name
      * @param userName    the user name
      * @param dateOfBirth the date of birth
+     * @param password the password
      */
-    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth) {
+    public User(String firstName, String lastName, String userName, LocalDate dateOfBirth, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.dateOfBirth = dateOfBirth;
+        this.password = password;
     }
 
 
@@ -130,7 +135,6 @@ public class User {
         pokemon.setUser(null);
     }
 
-    /*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -142,6 +146,10 @@ public class User {
                 Objects.equals(userName, user.userName) &&
                 Objects.equals(dateOfBirth, user.dateOfBirth);
     }
-    *
-     */
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(firstName, lastName, userName, id, dateOfBirth);
+    }
 }

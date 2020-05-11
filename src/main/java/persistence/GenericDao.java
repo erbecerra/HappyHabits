@@ -103,7 +103,7 @@ public class GenericDao<T> {
      * @param propertyName entity property to search by
      * @param value value of the property to search for
      * @return list of entities meeting the criteria search
-     */
+
     public List<T> getByPropertyLike(String propertyName, String value) {
         Session session = getSession();
 
@@ -120,6 +120,7 @@ public class GenericDao<T> {
         session.close();
         return entities;
     }
+     */
 
 
     /**
@@ -162,4 +163,5 @@ public class GenericDao<T> {
         session.close();
         return entities;
     }
+
 }

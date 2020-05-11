@@ -44,11 +44,11 @@ class UserDaoTest {
      */
     @Test
     void insertSuccess() {
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"));
+        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1968-01-01"), "password");
         int id = dao.insert(newUser);
         assertNotEquals(0,id);
         User insertedUser = (User)dao.getById(id);
-       // assertEquals(newUser, insertedUser);
+        assertEquals(newUser, insertedUser);
     }
 
     /**
@@ -56,7 +56,7 @@ class UserDaoTest {
      */
     @Test
     void insertUserWithRoleSuccess() {
-        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1168-01-01"));
+        User newUser = new User("Fred", "Flintstone", "fflintstone", LocalDate.parse("1168-01-01"), "password");
         Role role = new Role(newUser,"admin", newUser.getUserName());
         newUser.addRole(role);
         int id = dao.insert(newUser);
@@ -90,7 +90,7 @@ class UserDaoTest {
     */
     @Test
     void insertUserWithGoalSuccess() {
-        User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"));
+        User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"), "password");
         Goal goal = new Goal(newUser, "Unit Test Goal", GoalType.DAILY);
         Pokemon pokemon = new Pokemon("pikachu", "electric", "something", newUser, goal);
         goal.setPokemon(pokemon);

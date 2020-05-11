@@ -57,4 +57,9 @@ public class Role {
                 Objects.equals(roleName, role.roleName);
     }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id,  roleName, userName);
+    }
 }

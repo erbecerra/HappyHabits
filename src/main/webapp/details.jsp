@@ -15,17 +15,26 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
+                <div>
                 <h2>Goal Detail</h2>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logGoal">
                    Log to goal
                 </button>
                 <br>
                 <h3>After x weeks you will get a surprise pokemon</h3>
-                ${goal}
-                ${pokemon}
-                <table class="table table-striped">
-
+                ${goal.goalName}
+                    <img src="${pokemon.imageUrl}" alt="${pokemon.pokemonName}">${pokemon.pokemonName}
+                </div>
+                <div>
+                    <table class="table table-striped">
+                    <c:forEach items="${logs}" var="log">
+                        <tr>
+                            <td>${log.date}</td>
+                            <td>${log.success}</td>
+                        </tr>
+                    </c:forEach>
                 </table>
+                </div>
             </div>
         </div>
     </div>
@@ -47,27 +56,18 @@
             <!-- Modal body -->
             <div class="modal-body">
                 <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="title">Title</label>
-                        <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
-                    </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="frequency" value="DAILY">Daily
+                            <input type="radio" class="form-check-input" name="completed" value="true">Yes
                         </label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="frequency" value="WEEKLY">Weekly
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="frequency" value="MONTHLY">Monthly
+                            <input type="radio" class="form-check-input" name="completed" value="false">No
                         </label>
                     </div>
                     <br>
-                    <input class="btn btn-danger" type="SUBMIT" value="Add Goal">
+                    <input class="btn btn-danger" type="SUBMIT" value="Add log to goal">
                 </form>
             </div>
 
