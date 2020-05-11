@@ -33,6 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/profile">Log in</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/logout">Log out</a>
+                    </li>
                 </ul>
             </div>
         </div>
