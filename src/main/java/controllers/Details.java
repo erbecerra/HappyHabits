@@ -40,6 +40,7 @@ public class Details extends HttpServlet {
         dispatcher.forward(req, res);
     }
 
+    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
         String completed = req.getParameter("completed");
         boolean success;
