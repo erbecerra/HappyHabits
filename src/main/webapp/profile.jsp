@@ -13,7 +13,6 @@
 <c:import url="nav.jsp"/>
 Welcome to Poke Habits ${user[0].firstName},
 
-
 </body>
 </html>
 

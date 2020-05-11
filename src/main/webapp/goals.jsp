@@ -27,7 +27,7 @@
                             <td><img src="${goal.pokemon.imageUrl}" alt="">${goal.pokemon.pokemonName}</td>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
-                            <td>Log Goal</td>
+                            <td><a href="/HappyHabits/details?goalid=${goal.id}">Details</a></td>
                         </tr>
                     </c:forEach>
                 </table>
