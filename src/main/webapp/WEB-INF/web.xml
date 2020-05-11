@@ -21,10 +21,12 @@
             <web-resource-name>Poke Habits</web-resource-name>
             <url-pattern>/profile</url-pattern>
             <url-pattern>/profile.jsp</url-pattern>
-            <url-pattern>/PokeDex</url-pattern>
+            <url-pattern>/pokeDex</url-pattern>
             <url-pattern>/pokeDex.jsp</url-pattern>
             <url-pattern>/goals</url-pattern>
             <url-pattern>/goals.jsp</url-pattern>
+            <url-pattern>/details</url-pattern>
+            <url-pattern>/details.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>registered</role-name>

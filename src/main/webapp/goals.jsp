@@ -28,6 +28,7 @@
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
                             <td><a href="/HappyHabits/details?goalid=${goal.id}">Details</a></td>
+                            <td>Delete </td>
                         </tr>
                     </c:forEach>
                 </table>
