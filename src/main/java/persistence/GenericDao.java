@@ -142,6 +142,25 @@ public class GenericDao<T> {
         return entities;
     }
 
+    /**
+     * Get entity by an int property, like Primary keys, or foreign keys
+     * sample usage: getByPropertyLike("user_id", 1234)
+     *
+     * @param propertyName entity property to search by
+     * @param id value of the property to search for
+     * @return list of entities meeting the criteria search
+     */
+    public List<T> getAllByEntityIDWithCondition(String propertyName, int id, String conditionName, boolean value) {
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from( type );
+        query.select(root).where(builder.equal(root.get(propertyName),id), builder.equal(root.get(conditionName),value));
+        List<T> entities = session.createQuery( query ).getResultList();
+        session.close();
+        return entities;
+    }
+
     /** Get entity by property (exact match)
      * sample usage: getByPropertyEqual("lastName", "Curry")
      *

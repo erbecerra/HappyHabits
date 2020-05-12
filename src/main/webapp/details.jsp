@@ -23,7 +23,14 @@
                 <br>
                 <h3>After x weeks you will get a surprise pokemon</h3>
                 ${goal.goalName}
-                    <img src="${pokemon.imageUrl}" alt="${pokemon.pokemonName}">${pokemon.pokemonName}
+                    <c:choose>
+                    <c:when test="${goal.displayPokemon == true}">
+                        <td><img src="${pokemon.imageUrl}" alt="">${pokemon.pokemonName}</td>
+                    </c:when>
+                    <c:otherwise>
+                        <td><img src="images/brokenPokeBall.png" alt="">Mystery Pokemon</td>
+                    </c:otherwise>
+                    </c:choose>
                 </div>
                 <div>
                     <table class="table table-striped">

@@ -60,7 +60,7 @@ public class Goals extends HttpServlet {
             PokeDao pokeDao = new PokeDao();
             String goalTitle = req.getParameter("title");
             GoalType goalType = GoalType.valueOf(req.getParameter("frequency"));
-            Goal goal = new Goal(user, goalTitle, goalType);
+            Goal goal = new Goal(user, goalTitle, goalType, false);
 
             Random rand = new Random();
             int randomID = rand.nextInt(413);
@@ -78,7 +78,6 @@ public class Goals extends HttpServlet {
             entity.Pokemon poke = new Pokemon(pokemon.getName(), description , imageUrl, user, goal);
             goal.setPokemon(poke);
             goalDao.insert(goal);res.sendRedirect("goals");
-
 
         } catch (Exception ex) {
             logger.error(ex);

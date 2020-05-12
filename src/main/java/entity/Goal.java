@@ -36,6 +36,13 @@ public class Goal {
     private String goalName;
 
     /**
+     * Display pokemon to user
+     */
+    @Column(name = "display_pokemon")
+    @NotNull
+    private boolean displayPokemon;
+
+    /**
      * FK User associated with this goal
      */
     @ManyToOne
@@ -79,10 +86,11 @@ public class Goal {
      * @param goalName
      * @param goalType
      */
-    public Goal(User user, String goalName, GoalType goalType) {
+    public Goal(User user, String goalName, GoalType goalType, boolean displayPokemon) {
         this.user = user;
         this.goalName = goalName;
         this.goalType = goalType;
+        this.displayPokemon = displayPokemon;
     }
 
     /**

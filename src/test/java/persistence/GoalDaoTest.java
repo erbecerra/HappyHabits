@@ -35,6 +35,7 @@ public class GoalDaoTest {
     void getGoalByIdSuccess() {
         Goal goal = (Goal)goalDao.getById(1);
         assertNotNull(goal);
+        assertTrue(goal.isDisplayPokemon());
         assertEquals("Test 1", goal.getGoalName());
     }
 
@@ -73,7 +74,7 @@ public class GoalDaoTest {
     @Test
     void insertGoalSuccess() {
         User user = (User)userDao.getById(3);
-        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
+        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY, true);
         Pokemon pokemon = new Pokemon("pikachu", "electric", "something", user, goal);
         goal.setPokemon(pokemon);
         int id = goalDao.insert(goal);
@@ -89,7 +90,7 @@ public class GoalDaoTest {
     @Test
     void saveOrUpdateGoalSuccess() {
         User user = (User)userDao.getById(3);
-        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY);
+        Goal goal = new Goal(user,"Insert Unit Test", GoalType.MONTHLY, true);
         Pokemon pokemon = new Pokemon("pikachu", "electric", "something", user, goal);
         goal.setPokemon(pokemon);
         goalDao.saveOrUpdate(goal);
