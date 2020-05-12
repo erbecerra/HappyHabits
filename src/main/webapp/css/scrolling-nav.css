@@ -10,7 +10,10 @@ header {
 section {
   padding: 150px 0;
 }
-
+.imgwidth {
+   max-width: 150px;
+   max-height: 150px;
+ }
 .card {
   max-width:250px;
   max-height:250px;
@@ -19,9 +22,6 @@ section {
   max-width: 150px;
   max-height: 150px;
 }
-img {
-  max-width: 150px;
-  max-height: 150px;
-}
+
 
 

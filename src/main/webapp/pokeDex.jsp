@@ -20,14 +20,14 @@
                 <c:forEach items="${pokemon}" var="poke">
                     <div class="card">
                         <c:if test="${poke.goal.displayPokemon}">
-                            <td><img class="card-img-top" src="${poke.imageUrl}" alt="${poke.pokemonName}"></td>
+                            <td><img class="card-img-top imgwidth" src="${poke.imageUrl}" alt="${poke.pokemonName}"></td>
                             <div class="card-body">
                                 <p class="card-title">Name: ${poke.pokemonName}</p>
                                 <p class="card-text">Description: ${poke.description}</p>
                             </div>
                         </c:if>
                         <c:if test="${!poke.goal.displayPokemon}">
-                            <td><img class="card-img-top" src="images/pokeBall.png" alt="Mystery Pokemon"></td>
+                            <td><img class="card-img-top imgwidth" src="images/pokeBall.png" alt="Mystery Pokemon"></td>
                             <div class="card-body">
                                 <p class="card-title">Name: Mystery Pokemon</p>
                             </div>

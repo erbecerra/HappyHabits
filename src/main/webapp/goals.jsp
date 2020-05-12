@@ -24,10 +24,10 @@
                     <c:forEach items="${goals}" var="goal">
                         <tr>
                             <c:if test="${goal.displayPokemon}">
-                                <td><img src="${goal.pokemon.imageUrl}" alt="${goal.pokemon.pokemonName}">${goal.pokemon.pokemonName}</td>
+                                <td><img class="imgwidth" src="${goal.pokemon.imageUrl}" alt="${goal.pokemon.pokemonName}">${goal.pokemon.pokemonName}</td>
                             </c:if>
                             <c:if test="${!goal.displayPokemon}">
-                                <td><img src="images/pokeBall.png" alt="Mystery Pokemon">Mystery Pokemon</td>
+                                <td><img class="imgwidth" src="images/pokeBall.png" alt="Mystery Pokemon">Mystery Pokemon</td>
                             </c:if>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>

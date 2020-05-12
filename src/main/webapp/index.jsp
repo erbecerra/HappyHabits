@@ -9,14 +9,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>About this page</h2>
-                <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                <ul>
-                    <li>Clickable nav links that smooth scroll to page sections</li>
-                    <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                    <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                    <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                </ul>
+                <img class="img-fluid" src="images/pikachu.png" alt="pikachu">
+                <h2>About us</h2>
+                This application will help you meet your lifestyle goals using Pokemon! 
+                This application will have have a fun twist on creating healthy habits from drinking water, getting enough sleep, exercising and more. 
+                It can be difficult to track your habits or find easy ways to develop new habits.
+                This application will help you have fun while developing healthy life choices. 
+                When you achieve a goal you get rewarded with a pokemon.
             </div>
         </div>
     </div>
@@ -26,19 +25,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Services we offer</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h2>Contact us</h2>
-                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+                Track healthy habits from drinking water, getting enough sleep, exercising and more!
             </div>
         </div>
     </div>

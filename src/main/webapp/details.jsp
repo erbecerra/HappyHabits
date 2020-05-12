@@ -27,10 +27,10 @@
                 <br>
                     <c:choose>
                     <c:when test="${goal.displayPokemon == true}">
-                        <td><img src="${pokemon.imageUrl}" alt="">${pokemon.pokemonName}</td>
+                        <td><img class="imgwidth" src="${pokemon.imageUrl}" alt="">${pokemon.pokemonName}</td>
                     </c:when>
                     <c:otherwise>
-                        <td><img src="images/pokeBall.png" alt="">Mystery Pokemon</td>
+                        <td><img class="imgwidth" src="images/pokeBall.png" alt="">Mystery Pokemon</td>
                     </c:otherwise>
                     </c:choose>
                 </div>
