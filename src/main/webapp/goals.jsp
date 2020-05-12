@@ -28,7 +28,7 @@
                                 <td><img src="${goal.pokemon.imageUrl}" alt="${goal.pokemon.pokemonName}">${goal.pokemon.pokemonName}</td>
                             </c:if>
                             <c:if test="${!goal.displayPokemon}">
-                                <td><img src="images/brokenPokeBall.png" alt="">Mystery Pokemon</td>
+                                <td><img src="images/pokeBall.png" alt="Mystery Pokemon">Mystery Pokemon</td>
                             </c:if>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>

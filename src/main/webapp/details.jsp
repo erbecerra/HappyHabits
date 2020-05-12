@@ -20,6 +20,10 @@
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logGoal">
                    Log to goal
                 </button>
+
+                <a  type="button" class="btn btn-danger" href="/HappyHabits/updateGoal?goalId=${goal.id}">
+                    Edit Goal
+                </a>
                 <br>
                 <h3>After x weeks you will get a surprise pokemon</h3>
                 ${goal.goalName}
@@ -28,7 +32,7 @@
                         <td><img src="${pokemon.imageUrl}" alt="">${pokemon.pokemonName}</td>
                     </c:when>
                     <c:otherwise>
-                        <td><img src="images/brokenPokeBall.png" alt="">Mystery Pokemon</td>
+                        <td><img src="images/pokeBall.png" alt="">Mystery Pokemon</td>
                     </c:otherwise>
                     </c:choose>
                 </div>
