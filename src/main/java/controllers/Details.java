@@ -2,6 +2,8 @@ package controllers;
 
 import com.poke.TypesItem;
 import entity.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import persistence.PokeDao;
 
@@ -20,38 +22,50 @@ import java.util.Random;
 )
 public class Details extends HttpServlet {
 
-    GenericDao goalDao = new GenericDao(Goal.class);
-    GenericDao userDao = new GenericDao(User.class);
-    GenericDao pokeDao = new GenericDao(Pokemon.class);
-    GenericDao logDao = new GenericDao(Log.class);
-    User user;
-    Goal goal;
+    private final Logger logger = LogManager.getLogger(this.getClass());
+    private GenericDao goalDao = new GenericDao(Goal.class);
+    private GenericDao userDao = new GenericDao(User.class);
+    private GenericDao pokeDao = new GenericDao(Pokemon.class);
+    private GenericDao logDao = new GenericDao(Log.class);
+    private User user;
+    private Goal goal;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String login = req.getRemoteUser();
-        user = (User)userDao.getByPropertyEqual("userName", login).get(0);
-        int goalId = Integer.parseInt(req.getParameter("goalid"));
-        goal = (Goal)goalDao.getById(goalId);
-        req.setAttribute("goal", goal);
-        req.setAttribute("pokemon", pokeDao.getById(goal.getPokemon().getId()));
-        req.setAttribute("logs", logDao.getAllByEntityID("goal", goalId));
-        RequestDispatcher dispatcher = req.getRequestDispatcher("details.jsp");
-        dispatcher.forward(req, res);
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        try {
+            String login = req.getRemoteUser();
+            user = (User)userDao.getByPropertyEqual("userName", login).get(0);
+            int goalId = Integer.parseInt(req.getParameter("goalid"));
+            goal = (Goal)goalDao.getById(goalId);
+            req.setAttribute("goal", goal);
+            req.setAttribute("pokemon", pokeDao.getById(goal.getPokemon().getId()));
+            req.setAttribute("logs", logDao.getAllByEntityID("goal", goalId));
+            RequestDispatcher dispatcher = req.getRequestDispatcher("details.jsp");
+            dispatcher.forward(req, res);
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
+        }
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String completed = req.getParameter("completed");
-        boolean success;
-        if (completed == "true") {
-            success = true;
-        } else {
-            success = false;
+        try {
+            String completed = req.getParameter("completed");
+            boolean success;
+            if (completed.equals("true")) {
+                success = true;
+            } else {
+                success = false;
+            }
+            Log log = new Log(goal, LocalDate.now(), success);
+            logDao.insert(log);
+            res.sendRedirect("details?goalid=" + goal.getId());
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
         }
-        Log log = new Log(goal, LocalDate.now(), success);
-        logDao.insert(log);
-        res.sendRedirect("details?goalid=" + goal.getId());
     }
-
 }

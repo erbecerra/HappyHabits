@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: estefaniebecerra
-  Date: 5/10/20
-  Time: 11:28 PM
+  Date: 5/11/20
+  Time: 3:21 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,8 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h1>Oops! There was an error. Please try again later.</h1>
-                <img src="images/brokenPokeBall.png" alt="Broken Poke Ball">
+                <h1>Sorry you don't have access to this page!</h1>
             </div>
         </div>
     </div>
@@ -24,4 +23,3 @@
 <c:import url="footer.jsp"/>
 </body>
 </html>
-

@@ -14,6 +14,8 @@ import java.util.Properties;
 import utilities.PropertiesLoader;
 
 public class PokeDao implements PropertiesLoader {
+    Properties properties = loadProperties("/configuration.properties");
+    String url = properties.getProperty("pokeapiurl");
 
     public PokeDao() throws Exception {
 
@@ -21,11 +23,9 @@ public class PokeDao implements PropertiesLoader {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
 
-    public Pokemon  getPokemonByName (String name) throws Exception {
+    public Pokemon  getPokemonByName (String name) {
         Client client = ClientBuilder.newClient();
-        Properties properties = loadProperties("/database.properties");
-        //properties.getProperty("pokeapiurl")
-        WebTarget target = client.target("https://pokeapi.co/api/v2/pokemon/" + name + "/");
+        WebTarget target = client.target(url + name + "/");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
         Pokemon pokemon = null;
@@ -41,9 +41,7 @@ public class PokeDao implements PropertiesLoader {
 
     public Pokemon getPokemonByID (int ID) throws Exception {
         Client client = ClientBuilder.newClient();
-        Properties properties = loadProperties("/database.properties");
-        //properties.getProperty("pokeapiurl")
-        WebTarget target = client.target("https://pokeapi.co/api/v2/pokemon/" + ID + "/");
+        WebTarget target = client.target(url + ID + "/");
         String response = target.request(MediaType.APPLICATION_JSON).get(String.class);
         ObjectMapper mapper = new ObjectMapper();
         Pokemon pokemon = null;
@@ -56,13 +54,5 @@ public class PokeDao implements PropertiesLoader {
         }
         return pokemon;
     }
-
-
-    //get pokemon picture
-
-    //get pokemon stats
-
-   // Locally cache resources and images whenever you request them.
-   // Use the correct user-agent header in API requests.
 
 }

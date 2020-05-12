@@ -4,9 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.util.Objects;
 
 /**
  * Entity for user roles, to be used for authentication
@@ -17,21 +15,34 @@ import java.util.Objects;
 @Setter
 public class Role {
 
+    /**
+     * Identity column PK
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    /**
+     * User name
+     */
     @Column(name = "user_name")
     private String userName;
 
+    /**
+     * role name
+     */
     @Column(name = "role_name")
     private String roleName;
 
+    /**
+     * user id
+     */
     @ManyToOne
     @JoinColumn(name = "user_id",
             foreignKey = @ForeignKey(name = "role_user_user_id_fk")
     )
+    @EqualsAndHashCode.Exclude
     private User user;
 
     /**
@@ -41,25 +52,15 @@ public class Role {
 
     }
 
+    /**
+     * Constructor that sets initial values
+     * @param user
+     * @param roleName
+     * @param userName
+     */
     public Role(User user, String roleName, String userName) {
         this.user = user;
         this.roleName = roleName;
         this.userName = userName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Role role = (Role) o;
-        return id == role.id &&
-                Objects.equals(userName, role.userName) &&
-                Objects.equals(roleName, role.roleName);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id,  roleName, userName);
     }
 }

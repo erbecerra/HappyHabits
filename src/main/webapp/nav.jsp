@@ -22,16 +22,19 @@
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/goals">Goals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/log">Log</a>
+                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/details">Log</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/pokeDex">Poke dex</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/profile">Sign up</a>
+                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/signUp">Sign up</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/profile">Log in</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/logout">Log out</a>
                     </li>
                 </ul>
             </div>

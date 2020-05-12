@@ -2,6 +2,8 @@ package controllers;
 
 import entity.Role;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +19,13 @@ import java.time.LocalDate;
 )
 public class SignUp extends HttpServlet {
 
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/signUp.jsp");
         dispatcher.forward(req, resp);
     }
-
 
     /**
      * Creates a user
@@ -42,15 +45,22 @@ public class SignUp extends HttpServlet {
             String dob = req.getParameter("date_of_birth");
             String password = req.getParameter("password");
             String confirmPassword = req.getParameter("confirm_password");
+            if (password.equals(confirmPassword)) {
+                User user = new User(firstName, lastName, username, LocalDate.parse(dob), password);
+                Role role = new Role(user, "registered", username);
+                user.addRole(role);
+                userDao.insert(user);
+                res.sendRedirect("profile");
+            } else {
+                req.setAttribute("error", "Passwords do not match");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/signUp.jsp");
+                dispatcher.forward(req, res);
+            }
 
-            User user = new User(firstName, lastName, username, LocalDate.parse(dob), password);
-            Role role = new Role(user, "registered", username);
-            user.addRole(role);
-            userDao.insert(user);
-            res.sendRedirect("profile");
-        } catch (Exception ex)
-        {
-            res.sendRedirect("error.jsp");
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
         }
     }
 }

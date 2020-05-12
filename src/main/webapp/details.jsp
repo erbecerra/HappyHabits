@@ -31,6 +31,7 @@
                         <tr>
                             <td>${log.date}</td>
                             <td>${log.success}</td>
+                            <td><a href="/HappyHabits/delete?entity=log&id=${log.id}">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -68,14 +69,9 @@
                     </div>
                     <br>
                     <input class="btn btn-danger" type="SUBMIT" value="Add log to goal">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </form>
             </div>
-
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-
         </div>
     </div>
 </div>

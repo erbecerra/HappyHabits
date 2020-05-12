@@ -10,6 +10,7 @@ import javax.ejb.Local;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * Log entity
@@ -35,6 +36,7 @@ public class Log {
     @JoinColumn(name = "goal_id",
             foreignKey = @ForeignKey(name = "log_goal_goal_id_fk")
     )
+    @EqualsAndHashCode.Exclude
     private Goal goal;
 
     /**

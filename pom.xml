@@ -27,6 +27,8 @@
     <jackson-version>2.10.0</jackson-version>
     <lombok-verion>1.18.10</lombok-verion>
     <hibernate-version>5.4.4.Final</hibernate-version>
+    <hibernate-validator-version>5.4.3.Final</hibernate-validator-version>
+    <hibernate-cdi-version>5.4.3.Final</hibernate-cdi-version>
   </properties>
   <dependencies>
     <dependency>
@@ -96,6 +98,18 @@
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-c3p0</artifactId>
       <version>${hibernate-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate-validator-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator-cdi</artifactId>
+      <version>${hibernate-cdi-version}</version>
     </dependency>
 
     <dependency>

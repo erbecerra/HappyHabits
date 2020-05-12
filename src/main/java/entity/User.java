@@ -20,35 +20,66 @@ import java.util.Set;
 @Table(name = "user")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class User {
 
+    /**
+     * Identity column/PK
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    /**
+     * First name
+     */
     @Column(name = "first_name")
     private String firstName;
 
+    /**
+     * Last name
+     */
     @Column(name = "last_name")
     private String lastName;
 
+    /**
+     * user name
+     */
     @Column(name = "user_name")
     private String userName;
 
+    /**
+     * date of birth
+     */
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
+    /**
+     * password
+     */
     @Column(name = "password")
     private String password;
 
+    /**
+     * roles
+     */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
     private Set<Role> roles = new HashSet<>();
 
+    /**
+     * goals
+     */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
     private Set<Goal> goals = new HashSet<>();
 
+    /**
+     * all pokemon
+     */
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @EqualsAndHashCode.Exclude
     private Set<Pokemon> allPokemon = new HashSet<>();
 
     /**
@@ -73,7 +104,6 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.password = password;
     }
-
 
     /**
      * Add role
@@ -135,21 +165,4 @@ public class User {
         pokemon.setUser(null);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        User user = (User) o;
-        return id == user.id &&
-                Objects.equals(firstName, user.firstName) &&
-                Objects.equals(lastName, user.lastName) &&
-                Objects.equals(userName, user.userName) &&
-                Objects.equals(dateOfBirth, user.dateOfBirth);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(firstName, lastName, userName, id, dateOfBirth);
-    }
 }

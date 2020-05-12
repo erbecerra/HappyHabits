@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 
 /**
@@ -14,6 +13,7 @@ import javax.persistence.*;
 @Table(name = "pokemon")
 @Getter
 @Setter
+@EqualsAndHashCode
 public class Pokemon {
 
     /**
@@ -49,6 +49,7 @@ public class Pokemon {
     @JoinColumn(name = "user_id",
             foreignKey = @ForeignKey(name = "pokemon_user_user_id_fk")
     )
+    @EqualsAndHashCode.Exclude
     private User user;
 
     /**
@@ -58,6 +59,7 @@ public class Pokemon {
     @JoinColumn(name = "goal_id",
             foreignKey = @ForeignKey(name = "goal_pokemon_id_fk")
     )
+    @EqualsAndHashCode.Exclude
     private Goal goal;
 
     /**
