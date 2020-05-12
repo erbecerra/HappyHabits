@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Goals</h2>
+                <h2>Your Goals</h2>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addGoal">
                     Add a goal
                 </button>
@@ -23,7 +23,6 @@
                 <table class="table table-striped">
                     <c:forEach items="${goals}" var="goal">
                         <tr>
-                            <td>${goal.displayPokemon}</td>
                             <c:if test="${goal.displayPokemon}">
                                 <td><img src="${goal.pokemon.imageUrl}" alt="${goal.pokemon.pokemonName}">${goal.pokemon.pokemonName}</td>
                             </c:if>
@@ -42,8 +41,6 @@
     </div>
 </section>
 
-
-
 <!-- The Modal -->
 <div class="modal" id="addGoal">
     <div class="modal-dialog">
@@ -60,11 +57,11 @@
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
+                        <input type="text" class="form-control" placeholder="Enter title" id="title" name="title" required>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="frequency" value="DAILY">Daily
+                            <input type="radio" class="form-check-input" name="frequency" value="DAILY" required>Daily
                         </label>
                     </div>
                     <div class="form-check-inline">

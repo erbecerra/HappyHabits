@@ -20,12 +20,12 @@
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" class="form-control" placeholder="Enter username" id="username"
-                               NAME="j_username">
+                               NAME="j_username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password" id="password"
-                               NAME="j_password">
+                               NAME="j_password" required>
                     </div>
                     <INPUT class="btn btn-danger" TYPE="SUBMIT" VALUE="Log In">
                 </FORM>

@@ -3,7 +3,6 @@ package controllers;
 import entity.Goal;
 import entity.GoalType;
 import entity.User;
-import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;

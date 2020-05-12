@@ -18,12 +18,20 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <c:forEach items="${pokemon}" var="poke">
-                    <div class="card" s>
-                        <img class="card-img-top" src="${poke.imageUrl}" alt="Card image" style="width:150px;height:150px">
-                        <div class="card-body">
-                            <p class="card-title">Name: ${poke.pokemonName}</p>
-                            <p class="card-text">Description: ${poke.description}</p>
-                        </div>
+                    <div class="card">
+                        <c:if test="${poke.goal.displayPokemon}">
+                            <td><img class="card-img-top" src="${poke.imageUrl}" alt="${poke.pokemonName}"></td>
+                            <div class="card-body">
+                                <p class="card-title">Name: ${poke.pokemonName}</p>
+                                <p class="card-text">Description: ${poke.description}</p>
+                            </div>
+                        </c:if>
+                        <c:if test="${!poke.goal.displayPokemon}">
+                            <td><img class="card-img-top" src="images/pokeBall.png" alt="Mystery Pokemon"></td>
+                            <div class="card-body">
+                                <p class="card-title">Name: Mystery Pokemon</p>
+                            </div>
+                        </c:if>
                     </div>
                 </c:forEach>
             </div>

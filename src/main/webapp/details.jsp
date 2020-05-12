@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div>
-                <h2>Goal Detail</h2>
+                <h2>${goal.goalName}</h2>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#logGoal">
                    Log to goal
                 </button>
@@ -25,8 +25,6 @@
                     Edit Goal
                 </a>
                 <br>
-                <h3>After x weeks you will get a surprise pokemon</h3>
-                ${goal.goalName}
                     <c:choose>
                     <c:when test="${goal.displayPokemon == true}">
                         <td><img src="${pokemon.imageUrl}" alt="">${pokemon.pokemonName}</td>
@@ -37,6 +35,7 @@
                     </c:choose>
                 </div>
                 <div>
+                    <h3>Recent Logs</h3>
                     <table class="table table-striped">
                     <c:forEach items="${logs}" var="log">
                         <tr>

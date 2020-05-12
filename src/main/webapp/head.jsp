@@ -21,6 +21,8 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://jqueryvalidation.org/files/lib/jquery-1.11.1.js"></script>
+    <script src="scripts/jqueryValidator/jquery.validate.js"></script>
 
     <!-- Custom JavaScript for this theme -->
     <script src="scripts/scrolling-nav.js"></script>

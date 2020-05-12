@@ -19,11 +19,11 @@
 <form action="" method="POST">
     <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" placeholder="Enter title" id="title" name="title">
+        <input type="text" class="form-control" placeholder="Enter title" id="title" name="title" required>
     </div>
     <div class="form-check-inline">
         <label class="form-check-label">
-            <input type="radio" class="form-check-input" name="frequency" value="DAILY">Daily
+            <input type="radio" class="form-check-input" name="frequency" value="DAILY" required>Daily
         </label>
     </div>
     <div class="form-check-inline">
