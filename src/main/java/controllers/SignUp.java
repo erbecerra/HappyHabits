@@ -2,6 +2,8 @@ package controllers;
 
 import entity.Role;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,12 +19,13 @@ import java.time.LocalDate;
 )
 public class SignUp extends HttpServlet {
 
+    private final Logger logger = LogManager.getLogger(this.getClass());
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher = req.getRequestDispatcher("/signUp.jsp");
         dispatcher.forward(req, resp);
     }
-
 
     /**
      * Creates a user
@@ -48,9 +51,10 @@ public class SignUp extends HttpServlet {
             user.addRole(role);
             userDao.insert(user);
             res.sendRedirect("profile");
-        } catch (Exception ex)
-        {
-            res.sendRedirect("error.jsp");
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
         }
     }
 }

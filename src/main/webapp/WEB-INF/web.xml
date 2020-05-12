@@ -14,6 +14,18 @@
         </form-login-config>
     </login-config>
 
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pageNotFoundError.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/forbiddenError.jsp</location>
+    </error-page>
 
     <!-- Protect the index page. -->
     <security-constraint>
@@ -23,8 +35,8 @@
             <url-pattern>/profile.jsp</url-pattern>
             <url-pattern>/pokeDex</url-pattern>
             <url-pattern>/pokeDex.jsp</url-pattern>
-            <url-pattern>/goals</url-pattern>
-            <url-pattern>/goals.jsp</url-pattern>
+            <!--<url-pattern>/goals</url-pattern>
+            <url-pattern>/goals.jsp</url-pattern> -->
             <url-pattern>/details</url-pattern>
             <url-pattern>/details.jsp</url-pattern>
         </web-resource-collection>

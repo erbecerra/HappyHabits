@@ -1,6 +1,8 @@
 package controllers;
 
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 
 import javax.servlet.RequestDispatcher;
@@ -21,13 +23,20 @@ import java.io.IOException;
 )
 public class Profile extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getRemoteUser();
-        GenericDao dao = new GenericDao(User.class);
-        req.setAttribute("user", dao.getByPropertyEqual("userName", login));
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
-        dispatcher.forward(req, resp);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        try {
+            String login = req.getRemoteUser();
+            GenericDao dao = new GenericDao(User.class);
+            req.setAttribute("user", dao.getByPropertyEqual("userName", login));
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
+            dispatcher.forward(req, res);
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
+        }
     }
 }

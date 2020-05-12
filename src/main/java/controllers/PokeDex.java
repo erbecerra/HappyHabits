@@ -2,6 +2,8 @@ package controllers;
 
 import entity.Pokemon;
 import entity.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,18 +17,26 @@ import java.io.IOException;
         urlPatterns = {"/pokeDex"}
 )
 public class PokeDex extends HttpServlet {
-
-    GenericDao pokeDao = new GenericDao(Pokemon.class);
-    GenericDao userDao = new GenericDao(User.class);
-    User user;
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String login = req.getRemoteUser();
-        user = (User)userDao.getByPropertyEqual("userName", login).get(0);
-        req.setAttribute("pokemon", pokeDao.getAllByEntityID("user", user.getId()));
-        RequestDispatcher dispatcher = req.getRequestDispatcher("/pokeDex.jsp");
-        dispatcher.forward(req, res);
+        try {
+
+            GenericDao pokeDao = new GenericDao(Pokemon.class);
+            GenericDao userDao = new GenericDao(User.class);
+            String login = req.getRemoteUser();
+
+            User user = (User)userDao.getByPropertyEqual("userName", login).get(0);
+            req.setAttribute("pokemon", pokeDao.getAllByEntityID("user", user.getId()));
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/pokeDex.jsp");
+            dispatcher.forward(req, res);
+
+        } catch (Exception ex) {
+            logger.error(ex);
+            res.setStatus(500);
+            res.sendRedirect("/HappyHabits/error.jsp");
+        }
     }
 
 }

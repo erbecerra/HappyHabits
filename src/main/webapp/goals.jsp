@@ -28,7 +28,7 @@
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
                             <td><a href="/HappyHabits/details?goalid=${goal.id}">Details</a></td>
-                            <td>Delete </td>
+                            <td><a href="/HappyHabits/delete?entity=goal&id=${goal.id}">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>

@@ -31,6 +31,7 @@
                         <tr>
                             <td>${log.date}</td>
                             <td>${log.success}</td>
+                            <td><a href="/HappyHabits/delete?entity=log&id=${log.id}">Delete</a></td>
                         </tr>
                     </c:forEach>
                 </table>
