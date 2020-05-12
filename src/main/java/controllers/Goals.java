@@ -77,8 +77,8 @@ public class Goals extends HttpServlet {
 
             entity.Pokemon poke = new Pokemon(pokemon.getName(), description , imageUrl, user, goal);
             goal.setPokemon(poke);
-            goalDao.insert(goal);
-            res.sendRedirect("goals");
+            goalDao.insert(goal);res.sendRedirect("goals");
+
 
         } catch (Exception ex) {
             logger.error(ex);

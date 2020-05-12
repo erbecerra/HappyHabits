@@ -23,7 +23,7 @@ public class Delete extends HttpServlet {
         try {
             String entityType = req.getParameter("entity");
             int id = Integer.parseInt(req.getParameter("id"));
-
+            //check that this goal actually belongs to the logged in user
             if (entityType.equals("goal")) {
                 GenericDao goalDao = new GenericDao(Goal.class);
                 goalDao.delete(goalDao.getById(id));

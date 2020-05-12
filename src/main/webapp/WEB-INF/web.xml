@@ -35,10 +35,12 @@
             <url-pattern>/profile.jsp</url-pattern>
             <url-pattern>/pokeDex</url-pattern>
             <url-pattern>/pokeDex.jsp</url-pattern>
-            <!--<url-pattern>/goals</url-pattern>
-            <url-pattern>/goals.jsp</url-pattern> -->
+            <url-pattern>/goals</url-pattern>
+            <url-pattern>/goals.jsp</url-pattern>
             <url-pattern>/details</url-pattern>
             <url-pattern>/details.jsp</url-pattern>
+            <url-pattern>/delete</url-pattern>
+            <url-pattern>/delete.jsp</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <role-name>registered</role-name>

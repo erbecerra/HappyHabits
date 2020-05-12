@@ -45,12 +45,18 @@ public class SignUp extends HttpServlet {
             String dob = req.getParameter("date_of_birth");
             String password = req.getParameter("password");
             String confirmPassword = req.getParameter("confirm_password");
+            if (password.equals(confirmPassword)) {
+                User user = new User(firstName, lastName, username, LocalDate.parse(dob), password);
+                Role role = new Role(user, "registered", username);
+                user.addRole(role);
+                userDao.insert(user);
+                res.sendRedirect("profile");
+            } else {
+                req.setAttribute("error", "Passwords do not match");
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/signUp.jsp");
+                dispatcher.forward(req, res);
+            }
 
-            User user = new User(firstName, lastName, username, LocalDate.parse(dob), password);
-            Role role = new Role(user, "registered", username);
-            user.addRole(role);
-            userDao.insert(user);
-            res.sendRedirect("profile");
         } catch (Exception ex) {
             logger.error(ex);
             res.setStatus(500);

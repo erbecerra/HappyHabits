@@ -16,6 +16,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h1>Oops! There was an error. Please try again later.</h1>
+                <img src="images/brokenPokeBall.png" alt="Broken Poke Ball">
             </div>
         </div>
     </div>
