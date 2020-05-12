@@ -91,7 +91,7 @@ class UserDaoTest {
     @Test
     void insertUserWithGoalSuccess() {
         User newUser = new User("John", "Doe", "jdoe", LocalDate.parse("1168-01-01"), "password");
-        Goal goal = new Goal(newUser, "Unit Test Goal", GoalType.DAILY);
+        Goal goal = new Goal(newUser, "Unit Test Goal", GoalType.DAILY, true);
         Pokemon pokemon = new Pokemon("pikachu", "electric", "something", newUser, goal);
         goal.setPokemon(pokemon);
         newUser.addGoal(goal);

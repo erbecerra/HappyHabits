@@ -22,9 +22,6 @@
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/goals">Goals</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/HappyHabits/details">Log</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="/HappyHabits/pokeDex">Poke dex</a>
                     </li>
                     <li class="nav-item">

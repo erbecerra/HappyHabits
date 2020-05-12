@@ -1,6 +1,9 @@
 package controllers;
 
-import entity.*;
+import entity.Goal;
+import entity.GoalType;
+import entity.User;
+import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import persistence.GenericDao;
@@ -10,29 +13,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.util.List;
-
-/**
- * A servlet that will pull up user profile
- * @author ebecerra
- */
 
 @WebServlet(
-        urlPatterns = {"/profile"}
+        urlPatterns = {"/updateGoal"}
 )
-public class Profile extends HttpServlet {
+public class UpdateGoal extends HttpServlet {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
+    private GenericDao goalDao = new GenericDao(Goal.class);
     private GenericDao userDao = new GenericDao(User.class);
-    private GenericDao roleDao = new GenericDao(Role.class);
+    private User user;
+    private int goalId;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
         try {
-            String login = req.getRemoteUser();
-            req.setAttribute("user", userDao.getByPropertyEqual("userName", login));
-            RequestDispatcher dispatcher = req.getRequestDispatcher("/profile.jsp");
+            goalId = Integer.parseInt(req.getParameter("goalId"));
+            RequestDispatcher dispatcher = req.getRequestDispatcher("/editGoal.jsp");
             dispatcher.forward(req, res);
         } catch (Exception ex) {
             logger.error(ex);
@@ -43,19 +40,19 @@ public class Profile extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
+
         try {
-            String login = req.getRemoteUser();
-            List<User> users = userDao.getByPropertyEqual("userName", login);
-            User user = users.get(0);
-            user.setFirstName(req.getParameter("first_name"));
-            user.setLastName(req.getParameter("last_name"));
-            user.setDateOfBirth(LocalDate.parse(req.getParameter("date_of_birth")));
-            userDao.saveOrUpdate(user);
-            res.sendRedirect("profile");
+            Goal goal = (Goal)goalDao.getById(goalId);
+            goal.setGoalName(req.getParameter("title"));
+            goal.setGoalType(GoalType.valueOf(req.getParameter("frequency")));
+            goalDao.saveOrUpdate(goal);
+            res.sendRedirect("goals");
         } catch (Exception ex) {
             logger.error(ex);
             res.setStatus(500);
             res.sendRedirect("/HappyHabits/error.jsp");
         }
     }
+
+
 }

@@ -16,6 +16,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Sign up</h2>
+                ${error}
                 <form action="" method="POST">
                     <div class="form-group">
                         <label for="first_name">First Name:</label>

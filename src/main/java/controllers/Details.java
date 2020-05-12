@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Random;
 
 @WebServlet(
@@ -41,6 +42,7 @@ public class Details extends HttpServlet {
             req.setAttribute("pokemon", pokeDao.getById(goal.getPokemon().getId()));
             req.setAttribute("logs", logDao.getAllByEntityID("goal", goalId));
             RequestDispatcher dispatcher = req.getRequestDispatcher("details.jsp");
+            logger.info("got to the goals");
             dispatcher.forward(req, res);
         } catch (Exception ex) {
             logger.error(ex);
@@ -61,6 +63,20 @@ public class Details extends HttpServlet {
             }
             Log log = new Log(goal, LocalDate.now(), success);
             logDao.insert(log);
+
+            List<Log> logs = logDao.getAllByEntityIDWithCondition("goal", goal.getId(), "success", true);
+            if (goal.getGoalType() == GoalType.DAILY && logs.size() >= 5) {
+                goal.setDisplayPokemon(true);
+                logger.info("in daily");
+                logger.debug(logs);
+            } else if (goal.getGoalType() == GoalType.WEEKLY && logs.size() >= 4) {
+                goal.setDisplayPokemon(true);
+                logger.info("in weekly");
+            } else if (goal.getGoalType() == GoalType.MONTHLY && logs.size() >= 3) {
+                goal.setDisplayPokemon(true);
+                logger.info("in weekly");
+            }
+            goalDao.saveOrUpdate(goal);
             res.sendRedirect("details?goalid=" + goal.getId());
         } catch (Exception ex) {
             logger.error(ex);

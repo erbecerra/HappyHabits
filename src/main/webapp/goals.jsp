@@ -23,8 +23,13 @@
                 <table class="table table-striped">
                     <c:forEach items="${goals}" var="goal">
                         <tr>
-                            <td></td>
-                            <td><img src="${goal.pokemon.imageUrl}" alt="">${goal.pokemon.pokemonName}</td>
+                            <td>${goal.displayPokemon}</td>
+                            <c:if test="${goal.displayPokemon}">
+                                <td><img src="${goal.pokemon.imageUrl}" alt="${goal.pokemon.pokemonName}">${goal.pokemon.pokemonName}</td>
+                            </c:if>
+                            <c:if test="${!goal.displayPokemon}">
+                                <td><img src="images/pokeBall.png" alt="Mystery Pokemon">Mystery Pokemon</td>
+                            </c:if>
                             <td>${goal.goalName}</td>
                             <td>${goal.goalType}</td>
                             <td><a href="/HappyHabits/details?goalid=${goal.id}">Details</a></td>
