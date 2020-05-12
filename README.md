@@ -34,9 +34,10 @@ evolve your pokemon!
 * Hosting
   * AWS
 * Independent Research Topic/s
-  * CI tools in AWS
   * Poke API
+  * Lombok
   * Hibernate Validation
+  * Jquery validation plugin
 * Project Lombok to eliminate boilerplate code like getters/setters/equals
 * Unit Testing
   * JUnit tests to achieve 80%+ code coverage 

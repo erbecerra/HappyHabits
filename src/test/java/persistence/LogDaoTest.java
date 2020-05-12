@@ -76,6 +76,19 @@ public class LogDaoTest {
     }
 
     /**
+     * Verify successful retrieval of all goals by user ID
+     */
+    @Test
+    void getLogsByGoalIDWithCondition() {
+
+        List<Log> logs = logDao.getAllByEntityIDWithCondition("goal", 1, "success", false);
+        assertEquals(2, logs.size());
+    }
+
+
+
+
+    /**
      * Verify successful insert of a goal
     */
     @Test

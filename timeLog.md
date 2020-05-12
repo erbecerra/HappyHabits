@@ -23,15 +23,39 @@ I did almost all of the work for the checkpoint 1. This includes creating the us
  I am going to include as far as pokemon go and if it will be smarter to split some things up some more. I 
  will work this out the next week as I only thought this through enough to get through the project plan. 
 
-###Week 4
-###Week 5
-### Week 6
-### Week 7
-### Week 8
-### Week 9
-### Week 10
-### Week 11
+###Week 4 4 hours
+Finished up work for checkpoint 1. 
+Began the work to implement hibernate into my personal project. Was able to get this set up and the entities User and role
+I didn't however finish all the unit testing and the mapping of relationships between the enitities. 
+###Week 5 0 hours
+
+### Week 6 9 hours
+Implemented the user authentication. This required finishing up everything from the relationship mapping between the two entities
+### Week 7 6 hours
+Worked on creating my databases and my entities for the checkpoint 2. Implemented log4j. I wasn't able to complete the 
+full hibernate annotations on my entities as well as the unit testing. 
+### Week 8 8 hours
+Worked on deploying my application to AWS. Did not quite get there I got the step 5 of the instructions but did not do the 
+actual deployment. I have a lot of test failures that are preventing me from building the war file and actually putting it out 
+to AWSFinished up the deployment. Worked on completing requirements for checkpoint 3. This meant making sure my application was deployed to AWS, 
+had the authentication working properly and was displaying some user data on the jsp. 
+### Week 9 0 hours
+Didn't complete much as I prepared for the professional development presentation. 
+### Week 10 5 hours
+Worked mostly on the group project. Created the API client for the Poke API.
+### Week 11 0 hours
+Group project work week 
 ### Week 12
-### Week 13
-### Week 14
-### Week 15
+Finished all the database mappings and added additional unit tests. I also finished the API integration and did the json mapping
+to java using robopojo generator. 
+### Week 13 14 hours
+Worked on the front end mostly this week. Not too many hiccups here once I got a template working everything
+else went pretty smoothly 
+### Week 14 20 hours
+Added functionality and controllers to display goals. This week was a lot of clean up and reconfiguring just to get things working. 
+I left a lot for the end so I am definitely still working on getting the basic crud completely finished. 
+### Week 15  20 hours
+I still had a lot of functionality to finish. Made sure i was able to do full crud on the application. Had to add logic 
+to hiding and showing the pokemon.  Which meant also updating the goal entity to have an indicator. Added a few new servlets
+implemented some validation. Also worked on implementing feedback from the last code review. Finish the presentation, final touches,
+and screen recording. 

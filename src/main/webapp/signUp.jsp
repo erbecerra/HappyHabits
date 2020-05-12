@@ -21,30 +21,30 @@
                     <div class="form-group">
                         <label for="first_name">First Name:</label>
                         <input type="text" class="form-control" placeholder="First name" id="first_name"
-                               name="first_name">
+                               name="first_name" required>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
+                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name" required>
                     </div>
                     <div class="form-group">
                         <label for="date_of_birth">Date of Birth:</label>
-                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
                     </div>
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" class="form-control" placeholder="Enter username" id="username"
-                               name="username">
+                               name="username" required>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" class="form-control" placeholder="Enter password" id="password"
-                               name="password">
+                               name="password" required>
                     </div>
                     <div class="form-group">
                         <label for="confirm_password">Confirm Password:</label>
                         <input type="password" class="form-control" placeholder="Confirm password" id="confirm_password"
-                               name="confirm_password">
+                               name="confirm_password" required>
                     </div>
                     <input class="btn btn-danger" type="SUBMIT" value="Sign up">
                 </form>

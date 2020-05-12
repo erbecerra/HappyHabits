@@ -60,15 +60,15 @@
                     <div class="form-group">
                         <label for="first_name">First Name:</label>
                         <input type="text" class="form-control" placeholder="First name" id="first_name"
-                               name="first_name">
+                               name="first_name" required>
                     </div>
                     <div class="form-group">
                         <label for="last_name">Last Name:</label>
-                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
+                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name" required>
                     </div>
                     <div class="form-group">
                         <label for="date_of_birth">Date of Birth:</label>
-                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth">
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
                     </div>
                     <input class="btn btn-danger" type="SUBMIT" value="Update">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
