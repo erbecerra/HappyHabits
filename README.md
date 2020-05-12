@@ -52,3 +52,5 @@ evolve your pokemon!
 ### [Project Plan](projectPlan.md)
 
 ### [Weekly Refelection](timeLog.md)
+
+### [Video Demo](screenshots/demo.mov)
